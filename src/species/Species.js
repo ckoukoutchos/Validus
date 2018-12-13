@@ -3,28 +3,48 @@ import React, { Component } from 'react';
 class Species extends Component {
   state = {
     disabled: false,
-    error: {},
+    errors: false,
     touched: false,
     value: '',
     valid: false,
     validators: []
   };
 
-  inputBlurHandler = evt => {
+  required(value) {
 
+  }
+
+  checkValidity(validators, value) {
+    console.log(validators, value);
+    if (validators.length) {
+      let invalid = false;
+      const errors = {};
+
+      validators.forEach(validator => {
+        const hasError = validator(value);
+        if (hasError) {
+          invalid = true;
+          errors[hasError[0]] = hasError[1];
+        }
+      });
+
+      return !invalid ? false : errors;
+    }
+  }
+
+  inputBlurHandler = evt => {
+    console.log(this.state);
   }
 
   inputChangeHandler = evt => {
     const { validators, value } = this.state;
-    if (validators.length) {
-      validators.forEach(validator => {
-        
-      });
-    }
+    const hasError = this.checkValidity(validators, value);
 
     this.setState({
+      errors: hasError,
       touched: true,
-      value: evt.target.value,
+      valid: !hasError,
+      value: evt.target.value
     });
   };
 
