@@ -7,11 +7,11 @@ class Species extends Component {
     touched: false,
     value: '',
     valid: false,
-    validators: []
+    validators: [this.required]
   };
 
   required(value) {
-
+    return (value.trim().length > 0) ? false : ['required', true];
   }
 
   checkValidity(validators, value) {
@@ -37,8 +37,7 @@ class Species extends Component {
   }
 
   inputChangeHandler = evt => {
-    const { validators, value } = this.state;
-    const hasError = this.checkValidity(validators, value);
+    const hasError = this.checkValidity(this.state.validators, evt.target.value);
 
     this.setState({
       errors: hasError,
