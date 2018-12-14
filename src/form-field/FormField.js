@@ -43,7 +43,21 @@ class FormField extends Component {
   }
 
   inputBlurHandler = evt => {
-    console.log(this.state);
+    const hasError = this.checkValidity(
+      this.state.validators,
+      evt.target.value
+    );
+
+    const newState = {
+      ...this.state,
+      errors: hasError,
+      touched: true,
+      valid: !hasError,
+      value: evt.target.value
+    };
+
+    this.props.onBlur(newState);
+    this.setState(...newState);
   };
 
   /**
