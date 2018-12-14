@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Species from './species/Species';
+import FormField from './form-field/FormField';
 
 class App extends Component {
 
   render() {
-    return (
-      <div className="center">
-        <Species />
-      </div>
-    );
+    return <div className="center">
+        <FormField />
+      </div>;
   }
 }
 
