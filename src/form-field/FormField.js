@@ -2,17 +2,13 @@ import React, { Component } from 'react';
 
 class FormField extends Component {
   state = {
-    disabled: false,
-    errors: false,
-    touched: false,
-    value: '',
-    valid: false,
-    validators: [this.required]
+    disabled: this.props.disabled || false,
+    errors: this.props.errors || false,
+    touched: this.props.touched || false,
+    value: this.props.value || '',
+    valid: this.props.valid || false,
+    validators: this.props.validators || []
   };
-
-  required(value) {
-    return value.trim().length > 0 ? false : ['required', true];
-  }
 
   /**
    * @name checkValidity
@@ -56,8 +52,8 @@ class FormField extends Component {
       value: evt.target.value
     };
 
-    this.props.onBlur(newState);
-    this.setState(...newState);
+    // this.props.onBlur(newState);
+    this.setState(newState);
   };
 
   /**
@@ -79,9 +75,9 @@ class FormField extends Component {
       valid: !hasError,
       value: evt.target.value
     };
-
-    this.props.onChange(newState);
-    this.setState(...newState);
+console.log(newState);
+    // this.props.onChange(newState);
+    this.setState(newState);
   };
 
   render() {
