@@ -10,15 +10,18 @@ class FormField extends Component {
     validators: this.props.validators || []
   };
 
+  componentDidMount() {
+    console.log('child', this.state);
+  }
+
   /**
-   * @name checkValidity
    * @description runs input value through each validator to check validity
    * @param {ValidatorFunction[]} validators ValidatorFunction[]
    * @param {*} value any
-   * @memberof FormField
+   * @returns boolean | object
    */
   checkValidity(validators, value) {
-    // only check if at least one validators exist
+    // only check if at least one validator exists
     if (validators.length) {
       let invalid = false;
       const errors = {};
@@ -36,6 +39,8 @@ class FormField extends Component {
 
       return !invalid ? false : errors;
     }
+    // if no validators exist
+    return false;
   }
 
   inputBlurHandler = evt => {
@@ -52,15 +57,13 @@ class FormField extends Component {
       value: evt.target.value
     };
 
-    // this.props.onBlur(newState);
+    if (this.props.onBlur) this.props.onBlur(newState);
     this.setState(newState);
   };
 
   /**
-   * @name inputChangeHandler
    * @description  runs checkValidity on target value of passed event and updates FormField state
    * @param {event} evt event
-   * @memberof FormField
    */
   inputChangeHandler = evt => {
     const hasError = this.checkValidity(
@@ -75,8 +78,8 @@ class FormField extends Component {
       valid: !hasError,
       value: evt.target.value
     };
-console.log(newState);
-    // this.props.onChange(newState);
+
+    if (this.props.onChange) this.props.onChange(newState);
     this.setState(newState);
   };
 
