@@ -3,16 +3,22 @@ import './App.css';
 
 import FormGroup from './form-group/FormGroup';
 import FormField from './form-field/FormField';
+import Validators from './validators/validators';
 
 class App extends Component {
-
   render() {
-    return <div className="center">
+    return (
+      <div className="center">
         <FormGroup>
-          <FormField fieldName={1} type="text" value="value here"/>
-          <FormField fieldName={2} type="text" />
+          <FormField fieldName={1} type="text" value="value here" />
+          <FormField
+            fieldName={2}
+            type="text"
+            validators={[Validators.required, Validators.min(2)]}
+          />
         </FormGroup>
-      </div>;
+      </div>
+    );
   }
 }
 

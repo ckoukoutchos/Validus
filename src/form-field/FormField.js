@@ -11,10 +11,6 @@ class FormField extends Component {
     validators: this.props.validators || []
   };
 
-  componentDidMount() {
-    console.log('child', this.state);
-  }
-
   /**
    * @description runs input value through each validator to check validity
    * @param {ValidatorFunction[]} validators ValidatorFunction[]
@@ -44,29 +40,27 @@ class FormField extends Component {
     return false;
   }
 
+  /**
+   * @description  runs checkValidity on target value of passed event onBlur and updates FormField state
+   * @param {event} evt event
+   */
   inputBlurHandler = evt => {
-    const hasError = this.checkValidity(
-      this.state.validators,
-      evt.target.value
-    );
-
-    const newState = {
-      ...this.state,
-      errors: hasError,
-      touched: true,
-      valid: !hasError,
-      value: evt.target.value
-    };
-
+    const newState = this.updateState(evt);
     if (this.props.onBlur) this.props.onBlur(newState);
     this.setState(newState);
   };
 
   /**
-   * @description  runs checkValidity on target value of passed event and updates FormField state
+   * @description  runs checkValidity on target value of passed event onChange and updates FormField state
    * @param {event} evt event
    */
   inputChangeHandler = evt => {
+    const newState = this.updateState(evt);
+    if (this.props.onChange) this.props.onChange(newState);
+    this.setState(newState);
+  };
+
+  updateState(evt) {
     const hasError = this.checkValidity(
       this.state.validators,
       evt.target.value
@@ -80,9 +74,8 @@ class FormField extends Component {
       value: evt.target.value
     };
 
-    if (this.props.onChange) this.props.onChange(newState);
-    this.setState(newState);
-  };
+    return newState;
+  }
 
   render() {
     return (
