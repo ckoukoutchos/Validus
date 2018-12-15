@@ -4,6 +4,7 @@ class FormField extends Component {
   state = {
     disabled: this.props.disabled || false,
     errors: this.props.errors || false,
+    fieldName: this.props.fieldName,
     touched: this.props.touched || false,
     value: this.props.value || '',
     valid: this.props.valid || false,

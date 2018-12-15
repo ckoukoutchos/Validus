@@ -7,14 +7,12 @@ import FormField from './form-field/FormField';
 class App extends Component {
 
   render() {
-    return (
-      <div className="center">
+    return <div className="center">
         <FormGroup>
-          <FormField key={1} type="text" />
-          <FormField key={2} type="text" />
+          <FormField fieldName={1} type="text" value="value here"/>
+          <FormField fieldName={2} type="text" />
         </FormGroup>
-      </div>
-    );
+      </div>;
   }
 }
 

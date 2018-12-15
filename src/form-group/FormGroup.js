@@ -8,20 +8,20 @@ class FormGroup extends Component {
     valid: false
   };
 
-  componentDidMount() {
-    console.log('parent', this.props.children);
+  componentDidUpdate() {
+    console.log('parent', this.state);
   }
 
   getFieldValues() {
     const value = {};
     this.props.children.forEach(child => {
-      value[child.key] = child.props.value
+      value[child.props.fieldName] = child.props.value
     });
     return value;
   }
 
-  onBlur(formState) {
-    console.log(formState);
+  onBlur = (formState) => {
+    this.setState(prevState => ({ value: {...prevState.value, [formState.fieldName]: formState.value }}));
   }
 
   render() {
