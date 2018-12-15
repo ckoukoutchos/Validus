@@ -3,7 +3,7 @@ import './App.css';
 
 import FormGroup from './form-group/FormGroup';
 import FormField from './form-field/FormField';
-import Validators from './validators/validators';
+import Validators from './validators/Validators';
 
 class App extends Component {
   render() {

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/*
+ * FormGroup Wrapper component
+ */
 class FormGroup extends Component {
   state = {
     errors: false,
@@ -11,36 +14,43 @@ class FormGroup extends Component {
     console.log('parent', this.state);
   }
 
+  /**
+   * @description checks if any form fields have an error
+   * @param {boolean | object} errors boolean | object
+   * @returns boolean
+   */
   checkFormGroupValidity(errors) {
-    console.log(errors);
     let valid = true;
-    // check if error object exists
     for (const error in errors) {
-      if (!!error) valid = false;
+      if (!!errors[error]) valid = false;
     }
     return valid;
   }
 
-  onFormFieldBlur = formState => {
-    this.setState(prevState => {
-      const errors = {
-        ...prevState.errors,
-        [formState.fieldName]: formState.errors
-      };
-      return {
-        errors: errors,
-        valid: this.checkFormGroupValidity(errors),
-        value: { ...prevState.value, [formState.fieldName]: formState.value }
-      };
-    });
+  /**
+   * @description updates form group state on form field blur event
+   * @param {object} formState object
+   */
+  formFieldBlurHandler = formState => {
+    this.setState(prevState =>
+      this.updatedFormGroupState(prevState, formState)
+    );
   };
 
-  onFormFieldChange = formState => {
-    this.setState(prevState => ({
-      value: { ...prevState.value, [formState.fieldName]: formState.value }
-    }));
+  /**
+   * @description updates form group state on form field change event
+   * @param {object} formState object
+   */
+  formFieldChangeHandler = formState => {
+    this.setState(prevState =>
+      this.updatedFormGroupState(prevState, formState)
+    );
   };
 
+  /**
+   * @description sets group form value object to values passed on form fields
+   * @returns value object
+   */
   setFormFieldValues() {
     const value = {};
     this.props.children.forEach(child => {
@@ -49,9 +59,27 @@ class FormGroup extends Component {
     return value;
   }
 
+  /**
+   * @description updates form group state passed on updated form field state
+   * @param {object} prevState object
+   * @param {object} formState object
+   * @returns updatedState object
+   */
+  updatedFormGroupState(prevState, formState) {
+    const errors = {
+      ...prevState.errors,
+      [formState.fieldName]: formState.errors
+    };
+    return {
+      errors: errors,
+      valid: this.checkFormGroupValidity(errors),
+      value: { ...prevState.value, [formState.fieldName]: formState.value }
+    };
+  }
+
   render() {
     const addPropsToChildren = React.Children.map(this.props.children, child =>
-      React.cloneElement(child, { onBlur: this.onFormFieldBlur })
+      React.cloneElement(child, { onBlur: this.formFieldBlurHandler })
     );
     return <form>{addPropsToChildren}</form>;
   }

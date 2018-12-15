@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+/*
+ * FormField Wrapper component
+ */
 class FormField extends Component {
   state = {
     disabled: this.props.disabled || false,
@@ -18,54 +21,52 @@ class FormField extends Component {
    * @returns boolean | object
    */
   checkValidity(validators, value) {
-    // only check if at least one validator exists
     if (validators.length) {
       let invalid = false;
       const errors = {};
 
-      // run value through each validator
       validators.forEach(validator => {
         const hasError = validator(value);
 
-        // if validator returns error object
         if (hasError) {
           invalid = true;
           errors[hasError[0]] = hasError[1];
         }
       });
-
       return !invalid ? false : errors;
     }
-    // if no validators exist
     return false;
   }
 
   /**
-   * @description  runs checkValidity on target value of passed event onBlur and updates FormField state
+   * @description  updates state on input blur and calls onBlur callback
    * @param {event} evt event
    */
   inputBlurHandler = evt => {
-    const newState = this.updateState(evt);
+    const newState = this.updatedFormFieldState(evt);
     if (this.props.onBlur) this.props.onBlur(newState);
     this.setState(newState);
   };
 
   /**
-   * @description  runs checkValidity on target value of passed event onChange and updates FormField state
+   * @description  updates state on input change and calls onChange callback
    * @param {event} evt event
    */
   inputChangeHandler = evt => {
-    const newState = this.updateState(evt);
+    const newState = this.updatedFormFieldState(evt);
     if (this.props.onChange) this.props.onChange(newState);
     this.setState(newState);
   };
 
-  updateState(evt) {
+  /**
+   * @description runs checkValidity on target value and creates an updated state object
+   * @param {event} evt event
+   */
+  updatedFormFieldState(evt) {
     const hasError = this.checkValidity(
       this.state.validators,
       evt.target.value
     );
-
     const newState = {
       ...this.state,
       errors: hasError,
@@ -73,7 +74,6 @@ class FormField extends Component {
       valid: !hasError,
       value: evt.target.value
     };
-
     return newState;
   }
 
