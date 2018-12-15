@@ -83,7 +83,9 @@ console.log(newState);
   render() {
     return (
       <input
-        type="text"
+        disabled={this.props.disabled}
+        style={this.props.style}
+        type={this.props.type}
         value={this.state.value}
         onBlur={evt => this.inputBlurHandler(evt)}
         onChange={evt => this.inputChangeHandler(evt)}

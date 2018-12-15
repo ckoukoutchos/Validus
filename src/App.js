@@ -8,7 +8,7 @@ class App extends Component {
 
   render() {
     return <div className="center">
-        <FormField validators={[Validators.required]}/>
+        <FormField type='text' validators={[Validators.min()]}/>
       </div>;
   }
 }
