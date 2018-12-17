@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /*
- * FormField Wrapper component
+ * FormField Wrapper Component
  */
 class FormField extends Component {
   state = {
@@ -13,6 +13,10 @@ class FormField extends Component {
     valid: this.props.valid || false,
     validators: this.props.validators || []
   };
+
+  componentDidMount() {
+    // console.log(this.props);
+  }
 
   /**
    * @description runs input value through each validator to check validity
@@ -44,7 +48,7 @@ class FormField extends Component {
    */
   inputBlurHandler = evt => {
     const newState = this.updatedFormFieldState(evt);
-    if (this.props.onBlur) this.props.onBlur(newState);
+    if (this.props.onBlur) this.props.onBlur(newState, 'blur');
     this.setState(newState);
   };
 
@@ -54,7 +58,7 @@ class FormField extends Component {
    */
   inputChangeHandler = evt => {
     const newState = this.updatedFormFieldState(evt);
-    if (this.props.onChange) this.props.onChange(newState);
+    if (this.props.onChange) this.props.onChange(newState, 'change');
     this.setState(newState);
   };
 

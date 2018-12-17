@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 /*
- * FormGroup Wrapper component
+ * FormGroup Wrapper Component
  */
 class FormGroup extends Component {
   state = {
@@ -9,10 +9,6 @@ class FormGroup extends Component {
     valid: false,
     value: this.setFormFieldValues()
   };
-
-  componentDidUpdate() {
-    console.log('parent', this.state);
-  }
 
   /**
    * @description checks if any form fields have an error
@@ -31,20 +27,13 @@ class FormGroup extends Component {
    * @description updates form group state on form field blur event
    * @param {object} formState object
    */
-  formFieldBlurHandler = formState => {
-    this.setState(prevState =>
-      this.updatedFormGroupState(prevState, formState)
-    );
-  };
-
-  /**
-   * @description updates form group state on form field change event
-   * @param {object} formState object
-   */
-  formFieldChangeHandler = formState => {
-    this.setState(prevState =>
-      this.updatedFormGroupState(prevState, formState)
-    );
+  formFieldEventHandler = (formState, evtType) => {
+    this.setState(prevState => {
+      const updatedState = this.updatedFormGroupState(prevState, formState);
+      if (evtType === 'blur') this.props.onBlur(updatedState);
+      if (evtType === 'change') this.props.onChange(updatedState);
+      return updatedState;
+    });
   };
 
   /**
@@ -78,8 +67,17 @@ class FormGroup extends Component {
   }
 
   render() {
-    const addPropsToChildren = React.Children.map(this.props.children, child =>
-      React.cloneElement(child, { onBlur: this.formFieldBlurHandler })
+    const addPropsToChildren = React.Children.map(
+      this.props.children,
+      child => {
+        const onBlur = child.props.onBlur
+          ? this.formFieldEventHandler
+          : undefined;
+        const onChange = child.props.onChange
+          ? this.formFieldEventHandler
+          : undefined;
+        return React.cloneElement(child, { onBlur, onChange });
+      }
     );
     return <form>{addPropsToChildren}</form>;
   }

@@ -15,6 +15,7 @@ class App extends Component {
             fieldName={2}
             type="text"
             validators={[Validators.required, Validators.min(2)]}
+            onBlur={'Blurred'}
           />
         </FormGroup>
       </div>
