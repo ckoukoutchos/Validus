@@ -1,6 +1,6 @@
 /*
-* Built-in Validator functions for FormFields
-*/
+ * Built-in Validator functions for FormFields
+ */
 export default class Validators {
   /**
    * @description checks if value is valid email address
@@ -8,7 +8,9 @@ export default class Validators {
    * @returns boolean
    */
   static email(value) {
-    return value.test(/^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/);
+    return value.test(
+      /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/
+    );
   }
 
   /**
@@ -26,7 +28,10 @@ export default class Validators {
    * @returns function
    */
   static maxLength(maxLength) {
-    return value => (value.length <= maxLength ? false : ['maxLength', { maxLength, actual: value }]);
+    return value =>
+      value.length <= maxLength
+        ? false
+        : ['maxLength', { maxLength, actual: value }];
   }
 
   /**
@@ -38,13 +43,16 @@ export default class Validators {
     return value => (value >= min ? false : ['min', { min, actual: value }]);
   }
 
-/**
- * @description checks if value length is less than or equal to minLength
- * @param {number} minLength
- * @returns
- */
+  /**
+   * @description checks if value length is less than or equal to minLength
+   * @param {number} minLength
+   * @returns
+   */
   static minLength(minLength) {
-    return value => (value.length <= minLength ? false : ['minLength', { minLength, actual: value }]);
+    return value =>
+      value.length <= minLength
+        ? false
+        : ['minLength', { minLength, actual: value }];
   }
 
   /**
@@ -53,7 +61,7 @@ export default class Validators {
    * @returns function
    */
   static pattern(pattern) {
-    return value => pattern.test(value)
+    return value => pattern.test(value);
   }
 
   /**

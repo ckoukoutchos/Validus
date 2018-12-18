@@ -9,9 +9,7 @@
   </head>
   <body>
     <header class="main-header">
-      <div>
-        <li><a href="index.html">Validus</a></li>
-      </div>
+      <div><a href="index.html">Validus</a></div>
       <nav class="main-nav">
         <ul class="main-nav__items">
           <li class="main-nav__item">
@@ -26,6 +24,24 @@
         </ul>
       </nav>
     </header>
-    <section><h1>Validators</h1></section>
+    <section>
+      <h1>Validators</h1>
+      <p>Class providing built-in validator functions for common use cases</p>
+
+      <div>class Validators</div>
+      <div>static email(value: string) : boolean</div>
+
+      <div>static max(max: number) : ValidatorFunction</div>
+
+      <div>static maxLength(maxLength: number) : ValidatorFunction</div>
+
+      <div>static min(min: number) : ValidatorFunction</div>
+
+      <div>static minLength(minLength: number) : ValidatorFunction</div>
+
+      <div>static pattern(pattern: Regex) : ValidatorFunction</div>
+
+      <div>static required(value: any) : boolean</div>
+    </section>
   </body>
 </html>
