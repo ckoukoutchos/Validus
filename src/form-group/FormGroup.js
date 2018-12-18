@@ -30,8 +30,10 @@ class FormGroup extends Component {
   formFieldEventHandler = (formState, evtType) => {
     this.setState(prevState => {
       const updatedState = this.updatedFormGroupState(prevState, formState);
-      if (evtType === 'blur') this.props.onBlur(updatedState);
-      if (evtType === 'change') this.props.onChange(updatedState);
+      if (evtType === 'blur' && this.props.onBlur)
+        this.props.onBlur(updatedState);
+      if (evtType === 'change' && this.props.onChange)
+        this.props.onChange(updatedState);
       return updatedState;
     });
   };
