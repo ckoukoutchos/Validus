@@ -37,13 +37,13 @@
 
       <div class="card__detail">
         <h2>class Validators</h2>
-        <p>static email (value: string) : boolean</p>
+        <p>static email (value: string) : boolean | array</p>
         <p>static max (max: number) : ValidatorFunction</p>
         <p>static maxLength (maxLength: number) : ValidatorFunction</p>
         <p>static min (min: number) : ValidatorFunction</p>
         <p>static minLength (minLength: number) : ValidatorFunction</p>
-        <p>static pattern (pattern: Regex) : ValidatorFunction</p>
-        <p>static required (value: any) : boolean</p>
+        <p>static regex (regex: RegExp) : ValidatorFunction</p>
+        <p>static required (value: any) : boolean | array</p>
       </div>
     </section>
 
@@ -51,9 +51,9 @@
       <div class="card__detail">
         <h3>email</h3>
         <hr />
-        <p>Checks if value is a valid email address format</p>
+        <p>Checks if value is in a valid email address format</p>
         <hr />
-        <p>static email (value: string) : boolean</p>
+        <p>static email (value: string) : boolean | array</p>
         <hr />
         <p class="code">&ltFormField validators={[Validators.email]}/&gt</p>
       </div>
@@ -61,61 +61,67 @@
       <div class="card__detail">
         <h3>max</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if value less than or equal to max</p>
         <hr />
         <p>static max (max: number) : ValidatorFunction</p>
         <hr />
-        <p>example</p>
+        <p class="code">&ltFormField validators={[Validators.max(3)]}/&gt</p>
       </div>
 
       <div class="card__detail">
         <h3>maxLength</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if value's length is less than or equal to maxLength</p>
         <hr />
         <p>static maxLength (maxLength: number) : ValidatorFunction</p>
         <hr />
-        <p>example</p>
+        <p class="code">
+          &ltFormField validators={[Validators.maxLength(3)]}/&gt
+        </p>
       </div>
 
       <div class="card__detail">
         <h3>min</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if value is greater than or equal to min</p>
         <hr />
         <p>static min (min: number) : ValidatorFunction</p>
         <hr />
-        <p>example</p>
+        <p class="code">&ltFormField validators={[Validators.min(3)]}/&gt</p>
       </div>
 
       <div class="card__detail">
         <h3>minLength</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if value's length is greater than or equal to minLength</p>
         <hr />
         <p>static minLength (minLength: number) : ValidatorFunction</p>
         <hr />
-        <p>example</p>
+        <p class="code">
+          &ltFormField validators={[Validators.minLength(3)]}/&gt
+        </p>
       </div>
 
       <div class="card__detail">
-        <h3>pattern</h3>
+        <h3>regex</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if value passes regex.test()</p>
         <hr />
-        <p>static pattern (pattern: Regex) : ValidatorFunction</p>
+        <p>static regex (regex: RegExp) : ValidatorFunction</p>
         <hr />
-        <p>example</p>
+        <p class="code">
+          &ltFormField validators={[Validators.regex(new RegExp(/abc/))]}/&gt
+        </p>
       </div>
 
       <div class="card__detail">
         <h3>required</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if any value other than whitespace exists</p>
         <hr />
-        <p>static required (value: any) : boolean</p>
+        <p>static required (value: any) : boolean | array</p>
         <hr />
-        <p>example</p>
+        <p class="code">&ltFormField validators={[Validators.required]}/&gt</p>
       </div>
     </section>
 
@@ -143,7 +149,7 @@
         <p>Example</p>
         <p class="code">
           yourValidatorFunc(max) { return (inputValue) => inputValue < max ?
-          false : ['tooBig', true]}
+          false : ['tooBig', { max: max, actual: inputValue }]}
         </p>
       </div>
     </section>
