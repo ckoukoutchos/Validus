@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Bai+Jamjuree"
+      href="https://fonts.googleapis.com/css?family=Bai+Jamjuree|IBM+Plex+Mono"
       rel="stylesheet"
     />
     <title>Validators</title>
@@ -30,18 +30,20 @@
     </header>
 
     <section>
-      <h1>Validators</h1>
-      <p>Class providing built-in validator functions for common use cases</p>
+      <div class="card__detail">
+        <h1>Validators</h1>
+        <p>Class providing built-in validator functions for common use cases</p>
+      </div>
 
       <div class="card__detail">
-        <h3>class Validators</h3>
-        <p>static email(value: string) : boolean</p>
-        <p>static max(max: number) : ValidatorFunction</p>
-        <p>static maxLength(maxLength: number) : ValidatorFunction</p>
-        <p>static min(min: number) : ValidatorFunction</p>
-        <p>static minLength(minLength: number) : ValidatorFunction</p>
-        <p>static pattern(pattern: Regex) : ValidatorFunction</p>
-        <p>static required(value: any) : boolean</p>
+        <h2>class Validators</h2>
+        <p>static email (value: string) : boolean</p>
+        <p>static max (max: number) : ValidatorFunction</p>
+        <p>static maxLength (maxLength: number) : ValidatorFunction</p>
+        <p>static min (min: number) : ValidatorFunction</p>
+        <p>static minLength (minLength: number) : ValidatorFunction</p>
+        <p>static pattern (pattern: Regex) : ValidatorFunction</p>
+        <p>static required (value: any) : boolean</p>
       </div>
     </section>
 
@@ -49,11 +51,11 @@
       <div class="card__detail">
         <h3>email</h3>
         <hr />
-        <p>description</p>
+        <p>Checks if value is a valid email address format</p>
         <hr />
-        <p>static email(value: string) : boolean</p>
+        <p>static email (value: string) : boolean</p>
         <hr />
-        <p>example</p>
+        <p class="code">&ltFormField validators={[Validators.email]}/&gt</p>
       </div>
 
       <div class="card__detail">
@@ -61,7 +63,7 @@
         <hr />
         <p>description</p>
         <hr />
-        <p>static max(max: number) : ValidatorFunction</p>
+        <p>static max (max: number) : ValidatorFunction</p>
         <hr />
         <p>example</p>
       </div>
@@ -71,7 +73,7 @@
         <hr />
         <p>description</p>
         <hr />
-        <p>static maxLength(maxLength: number) : ValidatorFunction</p>
+        <p>static maxLength (maxLength: number) : ValidatorFunction</p>
         <hr />
         <p>example</p>
       </div>
@@ -81,7 +83,7 @@
         <hr />
         <p>description</p>
         <hr />
-        <p>static min(min: number) : ValidatorFunction</p>
+        <p>static min (min: number) : ValidatorFunction</p>
         <hr />
         <p>example</p>
       </div>
@@ -91,7 +93,7 @@
         <hr />
         <p>description</p>
         <hr />
-        <p>static minLength(minLength: number) : ValidatorFunction</p>
+        <p>static minLength (minLength: number) : ValidatorFunction</p>
         <hr />
         <p>example</p>
       </div>
@@ -101,7 +103,7 @@
         <hr />
         <p>description</p>
         <hr />
-        <p>static pattern(pattern: Regex) : ValidatorFunction</p>
+        <p>static pattern (pattern: Regex) : ValidatorFunction</p>
         <hr />
         <p>example</p>
       </div>
@@ -111,9 +113,38 @@
         <hr />
         <p>description</p>
         <hr />
-        <p>static required(value: any) : boolean</p>
+        <p>static required (value: any) : boolean</p>
         <hr />
         <p>example</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="card__detail">
+        <h2>Custom Validator Functions</h2>
+        <p>You can easily write your own validator functions.</p>
+        <p>
+          The function must accept <strong>at least one argument</strong>: the
+          input value that is automatically passed to the function when the
+          validator runs.
+        </p>
+        <p>
+          The function should return <strong>false</strong> if the value passes
+          the validator; otherwise it should return an
+          <strong>array</strong> with the first value being a
+          <strong>string</strong> for the name of the error and the second being
+          whatever information about the error you want returned.
+        </p>
+        <p>Example</p>
+        <p class="code">
+          yourValidatorFunc(inputValue) { return (inputValue > 10) ? false :
+          ['tooSmall', true]}
+        </p>
+        <p>Example</p>
+        <p class="code">
+          yourValidatorFunc(max) { return (inputValue) => inputValue < max ?
+          false : ['tooBig', true]}
+        </p>
       </div>
     </section>
   </body>

@@ -11,6 +11,10 @@ body {
   width: 60%;
 }
 
+.code {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 .main-header {
   background: black;
   font-family: 'Bai Jamjuree', sans-serif;
