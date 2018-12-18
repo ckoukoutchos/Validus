@@ -1,5 +1,19 @@
+body {
+  background: grey;
+}
+
+.card__detail {
+  background: whitesmoke;
+  border-radius: 10px;
+  font-family: 'Bai Jamjuree', sans-serif;
+  margin: 16px auto;
+  padding: 8px;
+  width: 60%;
+}
+
 .main-header {
   background: black;
+  font-family: 'Bai Jamjuree', sans-serif;
   left: 0;
   padding: 8px 16px;
   position: fixed;
