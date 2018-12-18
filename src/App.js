@@ -3,6 +3,7 @@ import './App.css';
 
 import FormGroup from './form-group/FormGroup';
 import FormField from './form-field/FormField';
+import FormSugar from './form-sugar/FormSugar';
 import Validators from './validators/Validators';
 
 class App extends Component {
@@ -18,6 +19,13 @@ class App extends Component {
             onBlur={'Blurred'}
           />
         </FormGroup>
+        {FormSugar.field([
+          'name',
+          'text',
+          'corbin',
+          [Validators.required],
+          newState => console.log(newState)
+        ])}
       </div>
     );
   }
