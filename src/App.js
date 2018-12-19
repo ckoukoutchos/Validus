@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="center">
-        <FormGroup>
+        <FormGroup groupName="1">
           <FormField fieldName={1} type="text" value="value here" />
           <FormField
             fieldName={2}
@@ -19,12 +19,20 @@ class App extends Component {
             onBlur={'Blurred'}
           />
         </FormGroup>
-        {FormSugar.field([
-          'name',
-          'text',
-          'corbin',
-          [Validators.required],
-          newState => console.log(newState)
+        {FormSugar.field(['name', 'text', 'tim', [Validators.required]])}
+
+        {FormSugar.group([
+          'aGroup',
+          [
+            FormSugar.field([
+              'name',
+              'text',
+              'bob',
+              [Validators.required],
+              newState => console.log('field', newState)
+            ])
+          ],
+          newState => console.log('group', newState)
         ])}
       </div>
     );

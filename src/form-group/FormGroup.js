@@ -5,8 +5,9 @@ import React, { Component } from 'react';
  */
 class FormGroup extends Component {
   state = {
-    errors: false,
-    valid: false,
+    errors: this.props.errors || false,
+    groupName: this.props.groupName,
+    valid: this.props.valid || false,
     value: this.setFormFieldValues()
   };
 
@@ -62,6 +63,7 @@ class FormGroup extends Component {
       [formState.fieldName]: formState.errors
     };
     return {
+      ...prevState,
       errors: errors,
       valid: this.checkFormGroupValidity(errors),
       value: { ...prevState.value, [formState.fieldName]: formState.value }
