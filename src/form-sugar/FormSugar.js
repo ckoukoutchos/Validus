@@ -12,25 +12,13 @@ class FormSugar {
         value={values[2]}
         validators={values[3]}
         onChange={values[4]}
-        onBlur={values[5]}
-        errors={values[6]}
-        disabled={values[7]}
-        touched={values[8]}
-        valid={values[9]}
       />
     );
   }
 
   static group(values) {
     return (
-      <FormGroup
-        groupName={values[0]}
-        onChange={values[2]}
-        onBlur={values[3]}
-        values={values[4]}
-        errors={values[5]}
-        valid={values[6]}
-      >
+      <FormGroup groupName={values[0]} onChange={values[2]} values={values[3]}>
         {values[1]}
       </FormGroup>
     );
