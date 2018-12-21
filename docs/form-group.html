@@ -20,9 +20,6 @@
             <a href="form-field.html">FormField</a>
           </li>
           <li class="main-nav__item">
-            <a href="form-group.html">FormGroup</a>
-          </li>
-          <li class="main-nav__item">
             <a href="form-sugar.html">FormSugar</a>
           </li>
           <li class="main-nav__item">
@@ -42,17 +39,24 @@
         </div>
 
         <div class="card__detail">
-          <div class="card__header"><h2>class FormSugar</h2></div>
+          <div class="card__header"><h2>&ltFormGroup&gt Component</h2></div>
           <div class="card__content">
+            <p><strong>Required Props:</strong></p>
+            <p class="code">groupName: string</p>
+            <p><strong>Optional Props:</strong></p>
+            <p class="code">errors: object | boolean = false</p>
+            <p class="code">style: object = {}</p>
+            <p class="code">value: object = {}</p>
+            <p class="code">valid: boolean = false</p>
+            <p class="code">onChange: function(formState: object)</p>
+            <p class="code">onBlur: function(formState: object)</p>
+            <p class="code">children: &ltFormField&gt | child elements</p>
+            <hr />
+            <p><strong>Example:</strong></p>
             <p class="code">
-              static field([ (fieldName: string), (type: string), (value?: any),
-              (formCheck?: FormCheck[]), (onChange: function) ]) : &ltFormField
-              /&gt
-            </p>
-            <p class="code">
-              static group([ (groupName: string), (formFields:
-              &ltFormField&gt[]), (onChange: function), (value?: any) ]) :
-              &ltFormGroup /&gt
+              &ltFormGroup groupName={'login'} value={{'name': 'Tom'}}
+              onChange={someFunction} style={{background:grey}} valid/&gt
+              &ltFormField /&gt &ltFormGroup /&gt
             </p>
           </div>
         </div>

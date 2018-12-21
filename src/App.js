@@ -4,7 +4,7 @@ import './App.css';
 import FormGroup from './form-group/FormGroup';
 import FormField from './form-field/FormField';
 import FormSugar from './form-sugar/FormSugar';
-import Validators from './validators/FormCheck';
+import FormCheck from './form-check/FormCheck';
 
 class App extends Component {
   render() {
@@ -15,11 +15,11 @@ class App extends Component {
           <FormField
             fieldName={2}
             type="text"
-            validators={[Validators.required, Validators.min(2)]}
+            formCheck={[FormCheck.required, FormCheck.min(2)]}
             onBlur={'Blurred'}
           />
         </FormGroup>
-        {FormSugar.field(['name', 'text', 'tim', [Validators.required]])}
+        {FormSugar.field(['name', 'text', 'tim', [FormCheck.required]])}
 
         {FormSugar.group([
           'aGroup',
@@ -28,7 +28,7 @@ class App extends Component {
               'name',
               'text',
               'bob',
-              [Validators.required],
+              [FormCheck.required],
               newState => console.log('field', newState)
             ])
           ],

@@ -17,9 +17,6 @@
       <nav class="main-nav">
         <ul class="main-nav__items">
           <li class="main-nav__item">
-            <a href="form-field.html">FormField</a>
-          </li>
-          <li class="main-nav__item">
             <a href="form-group.html">FormGroup</a>
           </li>
           <li class="main-nav__item">
@@ -42,15 +39,29 @@
         </div>
 
         <div class="card__detail">
-          <div class="card__header"><h2>&ltFormField&gt</h2></div>
+          <div class="card__header"><h2>&ltFormField&gt Component</h2></div>
           <div class="card__content">
-            <p class="code">disabled: boolean</p>
-            <p class="code"></p>
-            <p class="code"></p>
-            <p class="code"></p>
-            <p class="code"></p>
-            <p class="code"></p>
-            <p class="code"></p>
+            <p><strong>Required Props:</strong></p>
+            <p class="code">fieldName: string</p>
+            <p class="code">type: string</p>
+            <p><strong>Optional Props:</strong></p>
+            <p class="code">disabled: boolean = false</p>
+            <p class="code">errors: object | boolean = false</p>
+            <p class="code">formCheck: FormCheck[] = []</p>
+            <p class="code">style: object = {}</p>
+            <p class="code">touched: boolean = false</p>
+            <p class="code">value: any = ''</p>
+            <p class="code">valid: boolean = false</p>
+            <p class="code">onChange: function(formState: object)</p>
+            <p class="code">onBlur: function(formState: object)</p>
+            <p class="code">children: child elements</p>
+            <hr />
+            <p><strong>Example:</strong></p>
+            <p class="code">
+              &ltFormField fieldName={'name'} type={'text'} value={'Sally'}
+              formCheck={[FormCheck.required]} onChange={someFunction} disabled
+              style={{color:blue}} touched valid/&gt
+            </p>
           </div>
         </div>
       </section>

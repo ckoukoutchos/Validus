@@ -14,10 +14,6 @@ class FormField extends Component {
     formCheck: this.props.formCheck || []
   };
 
-  componentDidMount() {
-    // console.log(this.props);
-  }
-
   /**
    * @description runs input value through each FormCheck to check validity
    * @param {FormCheck[]} formCheck FormCheck[]
