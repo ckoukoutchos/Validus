@@ -26,7 +26,7 @@
             <a href="form-sugar.html">FormSugar</a>
           </li>
           <li class="main-nav__item">
-            <a href="validators.html">Validators</a>
+            <a href="form-check.html">FormCheck</a>
           </li>
         </ul>
       </nav>
@@ -46,8 +46,8 @@
           <div class="card__content">
             <p class="code">
               static field([ (fieldName: string), (type: string), (value?: any),
-              (validators?: ValidatorFunction[]), (onChange: function) ]) :
-              &ltFormField /&gt
+              (formCheck?: FormCheck[]), (onChange: function) ]) : &ltFormField
+              /&gt
             </p>
             <p class="code">
               static group([ (groupName: string), (formFields:
@@ -61,7 +61,7 @@
       <section>
         <div class="card__detail">
           <div class="card__header">
-            <h2>field</h2>
+            <h2>field( )</h2>
             <p>
               Shorthand for creating a &ltFormField&gt. All other props for a
               &ltFormField&gt not included in the field method are set to the
@@ -71,25 +71,26 @@
           <div class="card__content">
             <p class="code">
               static field([ (fieldName: string), (type: string), (value?: any),
-              (validators?: ValidatorFunction[]), (onChange: function) ]) :
-              &ltFormField /&gt
+              (formCheck?: FormCheck[]), (onChange: function) ]) : &ltFormField
+              /&gt
             </p>
             <hr />
+            <p><strong>Example:</strong></p>
             <p class="code">
-              FormSugar.field(['name', 'text', '', [Validators.required],
+              FormSugar.field(['name', 'text', '', [FormCheck.required],
               someFunction]);
             </p>
-            <p>Equivalent to:</p>
+            <p><strong>Equivalent to:</strong></p>
             <p class="code">
               &ltFormField fieldName={'name'} type={'text'} value={''}
-              validators={[Validators.required]} onChange={someFunction} /&gt
+              formCheck={[FormCheck.required]} onChange={someFunction} /&gt
             </p>
           </div>
         </div>
 
         <div class="card__detail">
           <div class="card__header">
-            <h2>group</h2>
+            <h2>group( )</h2>
             <p>
               Shorthand for creating a &ltFormGroup&gt. All other props for a
               &ltFormGroup&gt not included in the group method are set to the
@@ -103,10 +104,11 @@
               &ltFormGroup /&gt
             </p>
             <hr />
+            <strong>Example:</strong>
             <p class="code">
               FormSugar.group(['name', [&ltFormField /&gt], someFunction, '']);
             </p>
-            <p>Equivalent to:</p>
+            <p><strong>Equivalent to:</strong></p>
             <p class="code">
               &ltFormGroup groupName={'name'} onChange={someFunction}
               value={''}&gt &ltFormField /&gt &ltFormGroup /&gt

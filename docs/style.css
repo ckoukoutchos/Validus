@@ -25,17 +25,24 @@ body {
 }
 
 .card__well {
-  background: rgb(38, 39, 41);
+  background: rgb(51, 54, 62);
   border-radius: 8px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   font-family: 'Bai Jamjuree', sans-serif;
   margin: 16px auto;
   padding: 16px;
-  width: 60%;
+  width: 70%;
 }
 
 .code {
   font-family: 'IBM Plex Mono', monospace;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid rgb(89, 89, 89);
+  color: #333;
+  text-align: center;
 }
 
 main {
