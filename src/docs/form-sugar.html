@@ -13,7 +13,7 @@
   </head>
   <body>
     <header class="main-header">
-      <div><a href="index.html">Validus</a></div>
+      <div class="main-nav__item"><a href="index.html">Validus</a></div>
       <nav class="main-nav">
         <ul class="main-nav__items">
           <li class="main-nav__item">
@@ -31,80 +31,81 @@
         </ul>
       </nav>
     </header>
+    <main>
+      <section>
+        <div class="card__detail">
+          <h1 class="title">FormSugar</h1>
+          <p>
+            Class providing shorthand methods for constructing &ltFormField&gt
+            and &ltFormGroup&gt
+          </p>
+        </div>
 
-    <section>
-      <div class="card__detail">
-        <h1>Form Sugar</h1>
-        <p>
-          Class providing shorthand methods for constructing &ltFormField&gt and
-          &ltFormGroup&gt
-        </p>
-      </div>
+        <div class="card__detail">
+          <h2>class FormSugar</h2>
+          <p class="code">
+            static field([ (fieldName: string), (type: string), (value?: any),
+            (validators?: ValidatorFunction[]), (onChange: function) ]) :
+            &ltFormField /&gt
+          </p>
+          <p class="code">
+            static group([ (groupName: string), (formFields: &ltFormField&gt[]),
+            (onChange: function), (value?: any) ]) : &ltFormGroup /&gt
+          </p>
+        </div>
+      </section>
 
-      <div class="card__detail">
-        <h2>class FormSugar</h2>
-        <p class="code">
-          static field([ (fieldName: string), (type: string), (value?: any),
-          (validators?: ValidatorFunction[]), (onChange: function) ]) :
-          &ltFormField /&gt
-        </p>
-        <p class="code">
-          static group([ (groupName: string), (formFields: &ltFormField&gt[]),
-          (onChange: function), (value?: any) ]) : &ltFormGroup /&gt
-        </p>
-      </div>
-    </section>
+      <section>
+        <div class="card__detail">
+          <h2>field</h2>
+          <hr />
+          <p>
+            Shorthand for creating a &ltFormField&gt. All other props for a
+            &ltFormField&gt not included in the field method are set to the
+            default value.
+          </p>
+          <hr />
+          <p class="code">
+            static field([ (fieldName: string), (type: string), (value?: any),
+            (validators?: ValidatorFunction[]), (onChange: function) ]) :
+            &ltFormField /&gt
+          </p>
+          <hr />
+          <p class="code">
+            FormSugar.field(['name', 'text', '', [Validators.required],
+            someFunction]);
+          </p>
+          <p>Equivalent to:</p>
+          <p class="code">
+            &ltFormField fieldName={'name'} type={'text'} value={''}
+            validators={[Validators.required]} onChange={someFunction} /&gt
+          </p>
+        </div>
 
-    <section>
-      <div class="card__detail">
-        <h3>field</h3>
-        <hr />
-        <p>
-          Shorthand for creating a &ltFormField&gt. All other props for a
-          &ltFormField&gt not included in the field method are set to the
-          default value.
-        </p>
-        <hr />
-        <p class="code">
-          static field([ (fieldName: string), (type: string), (value?: any),
-          (validators?: ValidatorFunction[]), (onChange: function) ]) :
-          &ltFormField /&gt
-        </p>
-        <hr />
-        <p class="code">
-          FormSugar.field(['name', 'text', '', [Validators.required],
-          someFunction]);
-        </p>
-        <p>Equivalent to:</p>
-        <p class="code">
-          &ltFormField fieldName={'name'} type={'text'} value={''}
-          validators={[Validators.required]} onChange={someFunction} /&gt
-        </p>
-      </div>
-
-      <div class="card__detail">
-        <h3>group</h3>
-        <hr />
-        <p>
-          Shorthand for creating a &ltFormGroup&gt. All other props for a
-          &ltFormGroup&gt not included in the group method are set to the
-          default value.
-        </p>
-        <hr />
-        <p class="code">
-          static group([ (groupName: string), (formFields: &ltFormField&gt[]),
-          (onChange: function), (value?: any) ]) : &ltFormGroup /&gt
-        </p>
-        <hr />
-        <p class="code">
-          FormSugar.group(['name', [&ltFormField /&gt], someFunction, '']);
-        </p>
-        <p>Equivalent to:</p>
-        <p class="code">
-          &ltFormGroup groupName={'name'} onChange={someFunction} value={''}&gt
-          &ltFormField /&gt &ltFormGroup /&gt
-        </p>
-      </div>
-    </section>
+        <div class="card__detail">
+          <h2>group</h2>
+          <hr />
+          <p>
+            Shorthand for creating a &ltFormGroup&gt. All other props for a
+            &ltFormGroup&gt not included in the group method are set to the
+            default value.
+          </p>
+          <hr />
+          <p class="code">
+            static group([ (groupName: string), (formFields: &ltFormField&gt[]),
+            (onChange: function), (value?: any) ]) : &ltFormGroup /&gt
+          </p>
+          <hr />
+          <p class="code">
+            FormSugar.group(['name', [&ltFormField /&gt], someFunction, '']);
+          </p>
+          <p>Equivalent to:</p>
+          <p class="code">
+            &ltFormGroup groupName={'name'} onChange={someFunction}
+            value={''}&gt &ltFormField /&gt &ltFormGroup /&gt
+          </p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

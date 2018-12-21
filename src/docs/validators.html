@@ -13,7 +13,7 @@
   </head>
   <body>
     <header class="main-header">
-      <div><a href="index.html">Validus</a></div>
+      <div class="main-nav__item"><a href="index.html">Validus</a></div>
       <nav class="main-nav">
         <ul class="main-nav__items">
           <li class="main-nav__item">
@@ -32,137 +32,143 @@
       </nav>
     </header>
 
-    <section>
-      <div class="card__detail">
-        <h1>Validators</h1>
-        <p>Class providing built-in validator functions for common use cases</p>
-      </div>
+    <main>
+      <section>
+        <div class="card__detail">
+          <h1 class="title">Validators</h1>
+          <p>
+            Class providing built-in validator functions for common use cases
+          </p>
+        </div>
 
-      <div class="card__detail">
-        <h2>class Validators</h2>
-        <p class="code">static email(value: string) : boolean | array</p>
-        <p class="code">static max(max: number) : ValidatorFunction</p>
-        <p class="code">
-          static maxLength(maxLength: number) : ValidatorFunction
-        </p>
-        <p class="code">static min(min: number) : ValidatorFunction</p>
-        <p class="code">
-          static minLength(minLength: number) : ValidatorFunction
-        </p>
-        <p class="code">static regex(regex: RegExp) : ValidatorFunction</p>
-        <p class="code">static required(value: any) : boolean | array</p>
-      </div>
-    </section>
+        <div class="card__detail">
+          <h2>class Validators</h2>
+          <p class="code">static email(value: string) : boolean | array</p>
+          <p class="code">static max(max: number) : ValidatorFunction</p>
+          <p class="code">
+            static maxLength(maxLength: number) : ValidatorFunction
+          </p>
+          <p class="code">static min(min: number) : ValidatorFunction</p>
+          <p class="code">
+            static minLength(minLength: number) : ValidatorFunction
+          </p>
+          <p class="code">static regex(regex: RegExp) : ValidatorFunction</p>
+          <p class="code">static required(value: any) : boolean | array</p>
+        </div>
+      </section>
 
-    <section>
-      <div class="card__detail">
-        <h3>email</h3>
-        <hr />
-        <p>Checks if value is in a valid email address format</p>
-        <hr />
-        <p class="code">static email(value: string) : boolean | array</p>
-        <hr />
-        <p class="code">&ltFormField validators={[Validators.email]}/&gt</p>
-      </div>
+      <section>
+        <div class="card__detail">
+          <h2>email</h2>
+          <hr />
+          <p>Checks if value is in a valid email address format</p>
+          <hr />
+          <p class="code">static email(value: string) : boolean | array</p>
+          <hr />
+          <p class="code">&ltFormField validators={[Validators.email]}/&gt</p>
+        </div>
 
-      <div class="card__detail">
-        <h3>max</h3>
-        <hr />
-        <p>Checks if value less than or equal to max</p>
-        <hr />
-        <p class="code">static max(max: number) : ValidatorFunction</p>
-        <hr />
-        <p class="code">&ltFormField validators={[Validators.max(3)]}/&gt</p>
-      </div>
+        <div class="card__detail">
+          <h2>max</h2>
+          <hr />
+          <p>Checks if value less than or equal to max</p>
+          <hr />
+          <p class="code">static max(max: number) : ValidatorFunction</p>
+          <hr />
+          <p class="code">&ltFormField validators={[Validators.max(3)]}/&gt</p>
+        </div>
 
-      <div class="card__detail">
-        <h3>maxLength</h3>
-        <hr />
-        <p>Checks if value's length is less than or equal to maxLength</p>
-        <hr />
-        <p class="code">
-          static maxLength(maxLength: number) : ValidatorFunction
-        </p>
-        <hr />
-        <p class="code">
-          &ltFormField validators={[Validators.maxLength(3)]}/&gt
-        </p>
-      </div>
+        <div class="card__detail">
+          <h2>maxLength</h2>
+          <hr />
+          <p>Checks if value's length is less than or equal to maxLength</p>
+          <hr />
+          <p class="code">
+            static maxLength(maxLength: number) : ValidatorFunction
+          </p>
+          <hr />
+          <p class="code">
+            &ltFormField validators={[Validators.maxLength(3)]}/&gt
+          </p>
+        </div>
 
-      <div class="card__detail">
-        <h3>min</h3>
-        <hr />
-        <p>Checks if value is greater than or equal to min</p>
-        <hr />
-        <p class="code">static min(min: number) : ValidatorFunction</p>
-        <hr />
-        <p class="code">&ltFormField validators={[Validators.min(3)]}/&gt</p>
-      </div>
+        <div class="card__detail">
+          <h2>min</h2>
+          <hr />
+          <p>Checks if value is greater than or equal to min</p>
+          <hr />
+          <p class="code">static min(min: number) : ValidatorFunction</p>
+          <hr />
+          <p class="code">&ltFormField validators={[Validators.min(3)]}/&gt</p>
+        </div>
 
-      <div class="card__detail">
-        <h3>minLength</h3>
-        <hr />
-        <p>Checks if value's length is greater than or equal to minLength</p>
-        <hr />
-        <p class="code">
-          static minLength(minLength: number) : ValidatorFunction
-        </p>
-        <hr />
-        <p class="code">
-          &ltFormField validators={[Validators.minLength(3)]}/&gt
-        </p>
-      </div>
+        <div class="card__detail">
+          <h2>minLength</h2>
+          <hr />
+          <p>Checks if value's length is greater than or equal to minLength</p>
+          <hr />
+          <p class="code">
+            static minLength(minLength: number) : ValidatorFunction
+          </p>
+          <hr />
+          <p class="code">
+            &ltFormField validators={[Validators.minLength(3)]}/&gt
+          </p>
+        </div>
 
-      <div class="card__detail">
-        <h3>regex</h3>
-        <hr />
-        <p>Checks if value passes regex.test()</p>
-        <hr />
-        <p class="code">static regex(regex: RegExp) : ValidatorFunction</p>
-        <hr />
-        <p class="code">
-          &ltFormField validators={[Validators.regex(new RegExp(/abc/))]}/&gt
-        </p>
-      </div>
+        <div class="card__detail">
+          <h2>regex</h2>
+          <hr />
+          <p>Checks if value passes regex.test()</p>
+          <hr />
+          <p class="code">static regex(regex: RegExp) : ValidatorFunction</p>
+          <hr />
+          <p class="code">
+            &ltFormField validators={[Validators.regex(new RegExp(/abc/))]}/&gt
+          </p>
+        </div>
 
-      <div class="card__detail">
-        <h3>required</h3>
-        <hr />
-        <p>Checks if any value other than whitespace exists</p>
-        <hr />
-        <p class="code">static required(value: any) : boolean | array</p>
-        <hr />
-        <p class="code">&ltFormField validators={[Validators.required]}/&gt</p>
-      </div>
-    </section>
+        <div class="card__detail">
+          <h2>required</h2>
+          <hr />
+          <p>Checks if any value other than whitespace exists</p>
+          <hr />
+          <p class="code">static required(value: any) : boolean | array</p>
+          <hr />
+          <p class="code">
+            &ltFormField validators={[Validators.required]}/&gt
+          </p>
+        </div>
+      </section>
 
-    <section>
-      <div class="card__detail">
-        <h2>Custom Validator Functions</h2>
-        <p>You can easily write your own validator functions.</p>
-        <p>
-          The function must accept <strong>at least one argument</strong>: the
-          input value that is automatically passed to the function when the
-          validator runs.
-        </p>
-        <p>
-          The function should return <strong>false</strong> if the value passes
-          the validator; otherwise it should return an
-          <strong>array</strong> with the first value being a
-          <strong>string</strong> for the name of the error and the second being
-          whatever information about the error you want returned.
-        </p>
-        <p>Example</p>
-        <p class="code">
-          yourValidatorFunc(inputValue) { return (inputValue > 10) ? false :
-          ['tooSmall', true]}
-        </p>
-        <p>Example</p>
-        <p class="code">
-          yourValidatorFunc(max) { return (inputValue) => inputValue < max ?
-          false : ['tooBig', { max: max, actual: inputValue }]}
-        </p>
-      </div>
-    </section>
+      <section>
+        <div class="card__detail">
+          <h2>Custom Validator Functions</h2>
+          <p>You can easily write your own validator functions.</p>
+          <p>
+            The function must accept <strong>at least one argument</strong>: the
+            input value that is automatically passed to the function when the
+            validator runs.
+          </p>
+          <p>
+            The function should return <strong>false</strong> if the value
+            passes the validator; otherwise it should return an
+            <strong>array</strong> with the first value being a
+            <strong>string</strong> for the name of the error and the second
+            being whatever information about the error you want returned.
+          </p>
+          <p>Example</p>
+          <p class="code">
+            yourValidatorFunc(inputValue) { return (inputValue > 10) ? false :
+            ['tooSmall', true]}
+          </p>
+          <p>Example</p>
+          <p class="code">
+            yourValidatorFunc(max) { return (inputValue) => inputValue < max ?
+            false : ['tooBig', { max: max, actual: inputValue }]}
+          </p>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
