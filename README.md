@@ -1,5 +1,5 @@
 # Validus
-A form validation library for React that makes tracking values and validation simple!
+A form validation library for React that makes tracking values and validity simple!
 
 ### Installation
 NPM package in-progress
