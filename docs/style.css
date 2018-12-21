@@ -1,14 +1,36 @@
 body {
-  background: rgb(164, 164, 164);
+  background: rgb(159, 161, 167);
+}
+
+.card__content {
+  padding: 8px;
 }
 
 .card__detail {
-  background: whitesmoke;
+  background: white;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  color: rgb(28, 28, 28);
   font-family: 'Bai Jamjuree', sans-serif;
   margin: 24px auto;
+  /* padding: 8px; */
+  width: 70%;
+}
+
+.card__header {
+  background: rgb(51, 54, 62);
+  border-radius: 10px 10px 0 0;
+  color: white;
   padding: 8px;
+}
+
+.card__well {
+  background: rgb(38, 39, 41);
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  font-family: 'Bai Jamjuree', sans-serif;
+  margin: 16px auto;
+  padding: 16px;
   width: 60%;
 }
 
@@ -21,7 +43,8 @@ main {
 }
 
 .main-header {
-  background: rgb(29, 29, 29);
+  background: linear-gradient(rgba(65, 65, 65, 0.8), transparent) rgb(0, 0, 0);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   font-family: 'Bai Jamjuree', sans-serif;
   left: 0;
   padding: 12px 16px;
@@ -70,8 +93,17 @@ main {
   color: black;
 }
 
-.title {
-  text-align: center;
-  font-size: 32px;
+.sub-title {
+  color: white;
   margin: 0;
+  padding: 8px;
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 48px;
+  margin: 0;
+  padding: 4px;
+  text-align: center;
 }
