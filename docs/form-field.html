@@ -65,65 +65,6 @@
           </div>
         </div>
       </section>
-
-      <section>
-        <div class="card__detail">
-          <div class="card__header">
-            <h2>field( )</h2>
-            <p>
-              Shorthand for creating a &ltFormField&gt. All other props for a
-              &ltFormField&gt not included in the field method are set to the
-              default value.
-            </p>
-          </div>
-          <div class="card__content">
-            <p class="code">
-              static field([ (fieldName: string), (type: string), (value?: any),
-              (formCheck?: FormCheck[]), (onChange: function) ]) : &ltFormField
-              /&gt
-            </p>
-            <hr />
-            <p><strong>Example:</strong></p>
-            <p class="code">
-              FormSugar.field(['name', 'text', '', [FormCheck.required],
-              someFunction]);
-            </p>
-            <p><strong>Equivalent to:</strong></p>
-            <p class="code">
-              &ltFormField fieldName={'name'} type={'text'} value={''}
-              formCheck={[FormCheck.required]} onChange={someFunction} /&gt
-            </p>
-          </div>
-        </div>
-
-        <div class="card__detail">
-          <div class="card__header">
-            <h2>group( )</h2>
-            <p>
-              Shorthand for creating a &ltFormGroup&gt. All other props for a
-              &ltFormGroup&gt not included in the group method are set to the
-              default value.
-            </p>
-          </div>
-          <div class="card__content">
-            <p class="code">
-              static group([ (groupName: string), (formFields:
-              &ltFormField&gt[]), (onChange: function), (value?: any) ]) :
-              &ltFormGroup /&gt
-            </p>
-            <hr />
-            <strong>Example:</strong>
-            <p class="code">
-              FormSugar.group(['name', [&ltFormField /&gt], someFunction, '']);
-            </p>
-            <p><strong>Equivalent to:</strong></p>
-            <p class="code">
-              &ltFormGroup groupName={'name'} onChange={someFunction}
-              value={''}&gt &ltFormField /&gt &ltFormGroup /&gt
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="main__footer">

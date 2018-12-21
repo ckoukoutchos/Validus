@@ -29,6 +29,22 @@ body {
   padding: 8px;
 }
 
+.card__side {
+  border-radius: 0 10px 10px 0;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: 'Bai Jamjuree', sans-serif;
+  height: 300px;
+  margin: 16px 0;
+  width: 80%;
+}
+
+.card__side-title {
+  font-size: 72px;
+  margin: auto;
+  padding: 16px;
+}
+
 .card__well {
   background: rgb(51, 54, 62);
   border-radius: 8px;
@@ -37,6 +53,10 @@ body {
   margin: 16px auto;
   padding: 16px;
   width: 70%;
+}
+
+.clearfix {
+  clear: both;
 }
 
 .code {
@@ -50,13 +70,18 @@ hr {
   text-align: center;
 }
 
+#install {
+  background: rgb(92, 97, 111);
+}
+
 main {
   margin-top: 63px;
   margin-bottom: 100px;
 }
 
 .main-header {
-  background: linear-gradient(rgba(65, 65, 65, 0.8), transparent) rgb(0, 0, 0);
+  background: linear-gradient(rgba(51, 54, 62, 0.8), transparent)
+    rgb(28, 28, 28);
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   font-family: 'Bai Jamjuree', sans-serif;
   left: 0;
@@ -107,8 +132,8 @@ main {
 }
 
 .main__footer {
-  background: linear-gradient(to top, rgba(65, 65, 65, 0.8), transparent)
-    rgb(0, 0, 0);
+  background: linear-gradient(rgba(51, 54, 62, 0.8), transparent)
+    rgb(28, 28, 28);
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   color: white;
   font-family: 'Bai Jamjuree', sans-serif;
@@ -118,6 +143,10 @@ main {
   bottom: 0;
   text-align: center;
   width: 100%;
+}
+
+#overview {
+  background: rgb(115, 122, 140);
 }
 
 .sub-title {
@@ -133,4 +162,10 @@ main {
   margin: 0;
   padding: 4px;
   text-align: center;
+}
+
+#usage {
+  background: rgb(67, 71, 82);
+  border-radius: 10px 0 0 10px;
+  float: right;
 }
