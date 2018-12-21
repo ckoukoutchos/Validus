@@ -4,7 +4,7 @@ import './App.css';
 import FormGroup from './form-group/FormGroup';
 import FormField from './form-field/FormField';
 import FormSugar from './form-sugar/FormSugar';
-import Validators from './validators/Validators';
+import Validators from './validators/FormCheck';
 
 class App extends Component {
   render() {

@@ -11,7 +11,7 @@ class FormField extends Component {
     touched: this.props.touched || false,
     value: this.props.value || '',
     valid: this.props.valid || false,
-    validators: this.props.validators || []
+    formCheck: this.props.formCheck || []
   };
 
   componentDidMount() {
@@ -19,17 +19,17 @@ class FormField extends Component {
   }
 
   /**
-   * @description runs input value through each validator to check validity
-   * @param {ValidatorFunction[]} validators ValidatorFunction[]
+   * @description runs input value through each FormCheck to check validity
+   * @param {FormCheck[]} formCheck FormCheck[]
    * @param {*} value any
    * @returns boolean | object
    */
-  checkValidity(validators, value) {
-    if (validators.length) {
+  checkValidity(formCheck, value) {
+    if (formCheck.length) {
       let invalid = false;
       const errors = {};
 
-      validators.forEach(validator => {
+      formCheck.forEach(validator => {
         const hasError = validator(value);
 
         if (hasError) {
@@ -67,10 +67,7 @@ class FormField extends Component {
    * @param {event} evt event
    */
   updatedFormFieldState(evt) {
-    const hasError = this.checkValidity(
-      this.state.validators,
-      evt.target.value
-    );
+    const hasError = this.checkValidity(this.state.formCheck, evt.target.value);
     const newState = {
       ...this.state,
       errors: hasError,

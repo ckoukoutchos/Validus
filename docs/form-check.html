@@ -162,7 +162,7 @@
         <div class="card__detail">
           <div class="card__header">
             <h2>Custom FormCheck Functions</h2>
-            <p>Write your own FormCheck functions.</p>
+            <p>Write your own FormCheck functions</p>
           </div>
           <div class="card__content">
             <p>
@@ -177,12 +177,13 @@
               <strong>string</strong> for the name of the error and the second
               being whatever information about the error you want returned.
             </p>
-            <p>Example</p>
+            <hr />
+            <p><strong>Example</strong></p>
             <p class="code">
               yourFormCheckFunc(inputValue) { return (inputValue > 10) ? false :
               ['tooSmall', true]}
             </p>
-            <p>Example</p>
+            <p><strong>Example</strong></p>
             <p class="code">
               yourFormCheckFunc(max) { return (inputValue) => inputValue < max ?
               false : ['tooBig', { max: max, actual: inputValue }]}
@@ -191,5 +192,9 @@
         </div>
       </section>
     </main>
+
+    <footer class="main__footer">
+      <p>MIT License Copyright (c) 2018 Corbin Koukoutchos</p>
+    </footer>
   </body>
 </html>

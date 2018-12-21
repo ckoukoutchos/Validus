@@ -1,7 +1,7 @@
 /*
- * Built-in Validator functions for FormFields
+ * Built-in FormCheck functions for FormFields
  */
-export default class Validators {
+export default class FormCheck {
   /**
    * @description checks if value is valid email address
    * @param {string} email string

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bai+Jamjuree|IBM+Plex+Mono"
+      rel="stylesheet"
+    />
+    <title>Form Group</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="main-nav__item"><a href="index.html">Validus</a></div>
+      <nav class="main-nav">
+        <ul class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="form-field.html">FormField</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="form-group.html">FormGroup</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="form-sugar.html">FormSugar</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="form-check.html">FormCheck</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="card__well">
+          <h1 class="title">FormGroup</h1>
+          <p class="sub-title">
+            React wrapper component that tracks the state of an aribratry number
+            of FormFields
+          </p>
+        </div>
+
+        <div class="card__detail">
+          <div class="card__header"><h2>class FormSugar</h2></div>
+          <div class="card__content">
+            <p class="code">
+              static field([ (fieldName: string), (type: string), (value?: any),
+              (formCheck?: FormCheck[]), (onChange: function) ]) : &ltFormField
+              /&gt
+            </p>
+            <p class="code">
+              static group([ (groupName: string), (formFields:
+              &ltFormField&gt[]), (onChange: function), (value?: any) ]) :
+              &ltFormGroup /&gt
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card__detail">
+          <div class="card__header">
+            <h2>field( )</h2>
+            <p>
+              Shorthand for creating a &ltFormField&gt. All other props for a
+              &ltFormField&gt not included in the field method are set to the
+              default value.
+            </p>
+          </div>
+          <div class="card__content">
+            <p class="code">
+              static field([ (fieldName: string), (type: string), (value?: any),
+              (formCheck?: FormCheck[]), (onChange: function) ]) : &ltFormField
+              /&gt
+            </p>
+            <hr />
+            <p><strong>Example:</strong></p>
+            <p class="code">
+              FormSugar.field(['name', 'text', '', [FormCheck.required],
+              someFunction]);
+            </p>
+            <p><strong>Equivalent to:</strong></p>
+            <p class="code">
+              &ltFormField fieldName={'name'} type={'text'} value={''}
+              formCheck={[FormCheck.required]} onChange={someFunction} /&gt
+            </p>
+          </div>
+        </div>
+
+        <div class="card__detail">
+          <div class="card__header">
+            <h2>group( )</h2>
+            <p>
+              Shorthand for creating a &ltFormGroup&gt. All other props for a
+              &ltFormGroup&gt not included in the group method are set to the
+              default value.
+            </p>
+          </div>
+          <div class="card__content">
+            <p class="code">
+              static group([ (groupName: string), (formFields:
+              &ltFormField&gt[]), (onChange: function), (value?: any) ]) :
+              &ltFormGroup /&gt
+            </p>
+            <hr />
+            <strong>Example:</strong>
+            <p class="code">
+              FormSugar.group(['name', [&ltFormField /&gt], someFunction, '']);
+            </p>
+            <p><strong>Equivalent to:</strong></p>
+            <p class="code">
+              &ltFormGroup groupName={'name'} onChange={someFunction}
+              value={''}&gt &ltFormField /&gt &ltFormGroup /&gt
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main__footer">
+      <p>MIT License Copyright (c) 2018 Corbin Koukoutchos</p>
+    </footer>
+  </body>
+</html>
