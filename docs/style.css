@@ -22,12 +22,6 @@ body {
   width: 70%;
 }
 
-@media screen and (max-width: 500px) {
-  .card__detail {
-    width: 90%;
-  }
-}
-
 .card__header {
   background: rgb(51, 54, 62);
   border-radius: 10px 10px 0 0;
@@ -144,6 +138,10 @@ main {
   width: 100%;
 }
 
+.main__footer p {
+  margin: 0;
+}
+
 #overview {
   background: rgb(115, 122, 140);
 }
@@ -167,4 +165,14 @@ main {
   background: rgb(67, 71, 82);
   border-radius: 10px 0 0 10px;
   float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .card__detail {
+    width: 90%;
+  }
+
+  .card__well {
+    width: 90%;
+  }
 }

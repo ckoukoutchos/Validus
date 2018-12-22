@@ -10,16 +10,16 @@ class App extends Component {
   render() {
     return (
       <div className="center">
-        <FormGroup groupName="1">
+        <FormGroup groupName="1" onBlur={() => console.log('blur')}>
           <FormField fieldName={1} type="text" value="value here" />
           <FormField
             fieldName={2}
             type="text"
             formCheck={[FormCheck.required, FormCheck.min(2)]}
-            onBlur={'Blurred'}
+            onBlur={() => console.log('Blurred')}
           />
         </FormGroup>
-        {FormSugar.field(['name', 'text', 'tim', [FormCheck.required]])}
+        {/* {FormSugar.field(['name', 'text', 'tim', [FormCheck.required]])}
 
         {FormSugar.group([
           'aGroup',
@@ -33,7 +33,7 @@ class App extends Component {
             ])
           ],
           newState => console.log('group', newState)
-        ])}
+        ])} */}
       </div>
     );
   }
