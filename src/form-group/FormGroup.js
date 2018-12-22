@@ -76,12 +76,20 @@ class FormGroup extends Component {
   }
 
   render() {
-    const addPropsToChildren = React.Children.map(this.props.children, child =>
-      React.cloneElement(child, {
-        onBlurGroup: this.props.onBlur,
-        onChangeGroup: this.props.onChange
-      })
+    const addPropsToChildren = React.Children.map(
+      this.props.children,
+      child => {
+        if (child.type.name === 'FormField') {
+          return React.cloneElement(child, {
+            onBlurGroup: this.props.onBlur,
+            onChangeGroup: this.props.onChange
+          });
+        } else {
+          return child;
+        }
+      }
     );
+    console.log(addPropsToChildren);
     return (
       <form onSubmit={evt => this.submitHandler(this.state)}>
         {addPropsToChildren}

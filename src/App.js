@@ -12,6 +12,7 @@ class App extends Component {
       <div className="center">
         <FormGroup groupName="1" onBlur={() => console.log('blur')}>
           <FormField fieldName={1} type="text" value="value here" />
+          <label>Text here</label>
           <FormField
             fieldName={2}
             type="text"
