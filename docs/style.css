@@ -22,6 +22,12 @@ body {
   width: 70%;
 }
 
+@media screen and (max-width: 500px) {
+  .card__detail {
+    width: 90%;
+  }
+}
+
 .card__header {
   background: rgb(51, 54, 62);
   border-radius: 10px 10px 0 0;
@@ -92,20 +98,14 @@ main {
   z-index: 1;
 }
 
-.main-header > div {
-  display: inline-block;
-  height: 16px;
-  vertical-align: middle;
-}
-
 .main-nav {
-  display: inline-block;
-  text-align: right;
-  vertical-align: middle;
-  width: calc(100% - 110px);
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-nav__items {
+  display: flex;
+  justify-content: flex-end;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -113,7 +113,6 @@ main {
 
 .main-nav__item {
   color: white;
-  display: inline-block;
   margin: 0 16px;
 }
 
