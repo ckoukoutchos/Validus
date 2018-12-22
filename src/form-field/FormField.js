@@ -48,7 +48,7 @@ class FormField extends Component {
    */
   inputBlurHandler = evt => {
     const newState = this.updatedFormFieldState(evt);
-    if (this.props.onBlur) this.props.onBlur(newState, 'blur');
+    if (this.props.onBlur) this.props.onBlur(newState);
     if (this.props.onBlurGroup) this.props.onBlurGroup(newState, 'blur');
     this.setState(newState);
   };
@@ -59,7 +59,7 @@ class FormField extends Component {
    */
   inputChangeHandler = evt => {
     const newState = this.updatedFormFieldState(evt);
-    if (this.props.onChange) this.props.onChange(newState, 'change');
+    if (this.props.onChange) this.props.onChange(newState);
     if (this.props.onChangeGroup) this.props.onChangeGroup(newState, 'change');
     this.setState(newState);
   };

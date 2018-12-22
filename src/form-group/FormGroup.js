@@ -51,6 +51,11 @@ class FormGroup extends Component {
     return value;
   }
 
+  submitHandler = (evt, formState) => {
+    evt.preventDefault();
+    if (this.props.onSubmit) this.props.onSubmit(formState);
+  };
+
   /**
    * @description updates form group state passed on updated form field state
    * @param {object} prevState object
@@ -71,19 +76,17 @@ class FormGroup extends Component {
   }
 
   render() {
-    const addPropsToChildren = React.Children.map(
-      this.props.children,
-      child => {
-        const onBlurGroup = child.props.onBlur
-          ? this.formFieldEventHandler
-          : undefined;
-        const onChangeGroup = child.props.onChange
-          ? this.formFieldEventHandler
-          : undefined;
-        return React.cloneElement(child, { onBlurGroup, onChangeGroup });
-      }
+    const addPropsToChildren = React.Children.map(this.props.children, child =>
+      React.cloneElement(child, {
+        onBlurGroup: this.props.onBlur,
+        onChangeGroup: this.props.onChange
+      })
     );
-    return <form>{addPropsToChildren}</form>;
+    return (
+      <form onSubmit={evt => this.submitHandler(this.state)}>
+        {addPropsToChildren}
+      </form>
+    );
   }
 }
 
