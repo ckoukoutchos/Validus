@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import FormGroup from './form-group/FormGroup';
-import FormField from './form-field/FormField';
-import FormSugar from './form-sugar/FormSugar';
-import FormCheck from './form-check/FormCheck';
+import FormGroup from './FormGroup';
+import FormField from './FormField';
+import FormSugar from './FormSugar';
+import FormCheck from './FormCheck';
 
 class App extends Component {
   render() {

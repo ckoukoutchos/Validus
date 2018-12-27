@@ -50,6 +50,26 @@
             <p class="code">static required(value: any) : boolean | array</p>
           </div>
         </div>
+
+        <div class="card__detail">
+          <div class="card__header"><h2>Description</h2></div>
+          <div class="card__content">
+            <p>
+              FormChecks are functions that run any time an onBlur or onChange
+              event fires for a FormField to check the input's validity.
+            </p>
+            <p>
+              They either return false, for no error, or an array containing the
+              name of the error and any additional information that may be
+              useful (e.g. the length of the input value).
+            </p>
+            <p>
+              The FormCheck class provides a number of common validation checks,
+              but it is also possible to
+              <a href="#custom">write your own</a> FormChecks.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -157,7 +177,7 @@
 
       <section>
         <div class="card__detail">
-          <div class="card__header">
+          <div class="card__header" id="custom">
             <h2>Custom FormCheck Functions</h2>
             <p>Write your own FormCheck functions</p>
           </div>
