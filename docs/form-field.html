@@ -48,7 +48,9 @@
             <p><strong>Optional Props:</strong></p>
             <p class="code">disabled: boolean = false</p>
             <p class="code">errors: object | boolean = false</p>
-            <p class="code">formCheck: FormCheck[] = []</p>
+            <p class="code">
+              formCheck: <a href="form-check.html">FormCheck</a>[] = []
+            </p>
             <p class="code">style: object = {}</p>
             <p class="code">touched: boolean = false</p>
             <p class="code">value: any = ''</p>
@@ -100,19 +102,102 @@
                 <tr>
                   <td class="code">type: string</td>
                   <td>
-                    Type of input field: 'text', 'number', 'email', 'password',
-                    'search', 'checkbox', 'radio' <strong>Required</strong>
-                  </td>
-                </tr>
-                <tr>
-                  <td class="code">fieldName: string</td>
-                  <td>
-                    Unique name by which to identify the FormField
+                    Sets type of input field: 'text', 'number', 'email',
+                    'password', 'search', 'checkbox', 'radio'
                     <strong>Required</strong>
                   </td>
                 </tr>
+                <tr>
+                  <td class="code">disabled: boolean</td>
+                  <td>
+                    Disables input when set to true. Default value is false
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">errors: object | boolean</td>
+                  <td>
+                    Sets errors on input: false if the input is valid or an
+                    object with the error names as fields and any additional
+                    info about the errors as the values. Default value is false.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">
+                    formCheck: <a href="form-check.html">FormCheck</a>[]
+                  </td>
+                  <td>
+                    Array of FormCheck functions to run when input value changes
+                    or on input blur. Default value is an empty array.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">style: object</td>
+                  <td>
+                    Sets inline styling. Default value is an empty object.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">touched: boolean</td>
+                  <td>
+                    Sets whether input has been touched. Default value is false.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">value: any</td>
+                  <td>
+                    Sets the input's value. default value is empty string.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">valid: boolean</td>
+                  <td>
+                    Manually sets whether the input is valid. Default value is
+                    false;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">onBlur: function(formState: object)</td>
+                  <td>
+                    <p>
+                      Function called whenever an onBlur event is triggered for
+                      the input. The function will automatically be passed the
+                      FormField's current state.
+                    </p>
+                    <p>
+                      By default, no function will be executed onBlur unless one
+                      is passed as a prop.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">onChange: function(formState: object)</td>
+                  <td>
+                    <p>
+                      Function called whenever an onChange event is triggered
+                      for the input. The function will automatically be passed
+                      the FormField's current state.
+                    </p>
+                    <p>
+                      By default, no function will be executed onChange unless
+                      one is passed as a prop.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">children: child elements</td>
+                  <td>Any children html elements to render.</td>
+                </tr>
               </tbody>
             </table>
+          </div>
+        </div>
+
+        <div class="card__detail">
+          <div class="card__header"><h2>State</h2></div>
+          <div class="card__content">
+            <p class="code">{</p>
+            <p class="code">disabled</p>
+            <p class="code">}</p>
           </div>
         </div>
       </section>
