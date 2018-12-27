@@ -54,6 +54,18 @@
             </p>
           </div>
         </div>
+
+        <div class="card__detail">
+          <div class="card__header"><h2>Description</h2></div>
+          <div class="card__content">
+            <p>
+              FormSugar is just what it sounds like: syntactic sugar for creating Forms.
+              <p>Instead of passing each field as a prop to the Form component, you
+              can call either the <strong>field</strong> or
+              <strong>group</strong> method of the class and pass it an array of the props. </p>
+            </p>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -75,12 +87,12 @@
             <hr />
             <p><strong>Example:</strong></p>
             <p class="code">
-              FormSugar.field(['name', 'text', '', [FormCheck.required],
+              FormSugar.field(['name', 'text', 'Sue', [FormCheck.required],
               someFunction]);
             </p>
             <p><strong>Equivalent to:</strong></p>
             <p class="code">
-              &ltFormField fieldName={'name'} type={'text'} value={''}
+              &ltFormField fieldName={'name'} type={'text'} value={'Sue'}
               formCheck={[FormCheck.required]} onChange={someFunction} /&gt
             </p>
           </div>

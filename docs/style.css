@@ -158,6 +158,22 @@ main {
   text-align: center;
 }
 
+td {
+  padding: 8px;
+}
+
+td h3 {
+  margin: 0;
+}
+
+td:first-child {
+  width: 40%;
+}
+
+td:last-child {
+  width: 60%;
+}
+
 .title {
   color: white;
   font-size: 48px;
