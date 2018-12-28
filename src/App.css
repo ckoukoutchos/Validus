@@ -1,7 +1,13 @@
+.button {
+  margin: auto;
+  padding: 4px;
+  width: 50%;
+}
+
 .code__card {
   background: lightgrey;
   border-radius: 8px;
-  height: 270px;
+  height: 300px;
   margin: 8px;
   padding: 16px;
   width: 300px;

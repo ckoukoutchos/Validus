@@ -39,6 +39,10 @@ class App extends Component {
     this.setState({ group: formState });
   };
 
+  formSubmitHandler = formState => {
+    alert(formState.valid);
+  };
+
   displayObjectFields(object) {
     const el = [];
     for (const field in object) {
@@ -71,8 +75,9 @@ class App extends Component {
 
     return (
       <div>
-        <h1 style={{ textAlign: 'center' }}>Signup Form Demo</h1>
+        <h1 style={{ textAlign: 'center' }}>Validus Form Demo</h1>
         <div className="signup">
+          <h2 style={{ textAlign: 'center', margin: 0 }}>Signup</h2>
           <FormGroup
             groupName="1"
             style={{
@@ -82,6 +87,7 @@ class App extends Component {
             }}
             onBlur={formState => this.formGroupChangeHandler(formState)}
             onChange={formState => this.formGroupChangeHandler(formState)}
+            onSubmit={formState => this.formSubmitHandler(formState)}
           >
             <label style={{ marginLeft: '8px' }}>Email</label>
             <FormField
@@ -111,11 +117,15 @@ class App extends Component {
               }
             />
             {passwordError}
+            <button className="button" type="submit" disabled={!group.valid}>
+              Submit
+            </button>
           </FormGroup>
         </div>
+
         <div className="form-state">
           <div>
-            <h3>Signup FormGroup</h3>
+            <h3 style={{ textAlign: 'center' }}>Signup FormGroup</h3>
             <div className="code__card">
               <p className="code__field">
                 <code>formState = {'{'}</code>
@@ -143,7 +153,7 @@ class App extends Component {
           </div>
 
           <div>
-            <h3>Email FormField</h3>
+            <h3 style={{ textAlign: 'center' }}>Email FormField</h3>
             <div className="code__card">
               <p className="code__field">
                 <code>formState = {'{'}</code>
@@ -165,7 +175,7 @@ class App extends Component {
           </div>
 
           <div>
-            <h3>Password FormField</h3>
+            <h3 style={{ textAlign: 'center' }}>Password FormField</h3>
             <div className="code__card">
               <code>formState = {'{'}</code>
               <p className="code__indent">

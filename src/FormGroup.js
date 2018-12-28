@@ -96,7 +96,7 @@ class FormGroup extends Component {
     return (
       <form
         style={this.props.style}
-        onSubmit={evt => this.submitHandler(this.state)}
+        onSubmit={evt => this.submitHandler(evt, this.state)}
       >
         {addPropsToChildren}
       </form>
