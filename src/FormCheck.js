@@ -31,7 +31,7 @@ export default class FormCheck {
     return value =>
       value.length <= maxLength
         ? false
-        : ['maxLength', { maxLength, actual: value }];
+        : ['maxLength', { maxLength, actual: value.length }];
   }
 
   /**
@@ -50,9 +50,9 @@ export default class FormCheck {
    */
   static minLength(minLength) {
     return value =>
-      value.length <= minLength
+      value.length >= minLength
         ? false
-        : ['minLength', { minLength, actual: value }];
+        : ['minLength', { minLength, actual: value.length }];
   }
 
   /**

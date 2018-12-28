@@ -46,7 +46,11 @@ class FormGroup extends Component {
   setFormFieldValues() {
     const value = {};
     this.props.children.forEach(child => {
-      value[child.props.fieldName] = child.props.value;
+      if (child.type.name === 'FormField') {
+        child.props.value
+          ? (value[child.props.fieldName] = child.props.value)
+          : (value[child.props.fieldName] = '');
+      }
     });
     return value;
   }
