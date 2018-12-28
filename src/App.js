@@ -6,6 +6,14 @@ import FormField from './FormField';
 import FormCheck from './FormCheck';
 
 class App extends Component {
+  state = {
+    group: null
+  };
+
+  formGroupChangeHandler = formState => {
+    this.setState({ group: formState });
+  };
+
   render() {
     return (
       <div className="center">
@@ -17,26 +25,26 @@ class App extends Component {
               flexDirection: 'column',
               padding: '16px'
             }}
-            onBlur={() => console.log('blur')}
+            onBlur={formState => console.log(formState)}
           >
-            <label>Email</label>
+            <label style={{ marginLeft: '8px' }}>Email</label>
             <FormField
               fieldName={1}
               type="text"
               style={{ margin: '8px', padding: '4px' }}
-              value="value here"
             />
-            <label>Password</label>
+            <label style={{ marginLeft: '8px' }}>Password</label>
             <FormField
               fieldName={2}
               style={{ margin: '8px', padding: '4px' }}
               type="text"
               formCheck={[FormCheck.required, FormCheck.min(2)]}
-              onBlur={() => console.log('Blurred')}
             />
           </FormGroup>
         </div>
-        <div />
+        <div>
+          <p>group</p>
+        </div>
       </div>
     );
   }

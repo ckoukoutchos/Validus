@@ -81,8 +81,8 @@ class FormGroup extends Component {
       child => {
         if (child.type.name === 'FormField') {
           return React.cloneElement(child, {
-            onBlurGroup: this.props.onBlur,
-            onChangeGroup: this.props.onChange
+            onBlurGroup: this.formFieldEventHandler,
+            onChangeGroup: this.formFieldEventHandler
           });
         } else {
           return child;
