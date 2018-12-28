@@ -4,6 +4,28 @@
   margin: 100px;
 }
 
+.code__card {
+  background: lightgrey;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.code__field {
+  margin: 0;
+}
+
+.code__indent {
+  margin: 0;
+  margin-left: 16px;
+  padding: 4px;
+}
+
+.code__indent--double {
+  margin: 0;
+  margin-left: 32px;
+  padding: 4px;
+}
+
 .login {
   border: 2px solid rgb(14, 1, 97);
   border-radius: 8px;
