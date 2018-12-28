@@ -62,6 +62,116 @@
             </p>
           </div>
         </div>
+        <div class="card__detail">
+          <div class="card__header"><h2>Description</h2></div>
+          <div class="card__content">
+            <p>
+              FormGroup components wrap a form element, keeping track of
+              its current state, and can be configured to inform parent
+              components when the state changes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card__detail">
+          <div class="card__header">
+            <h2>Props</h2>
+            <p>Details for properties that can be passed</p>
+          </div>
+          <div class="card__content">
+            <table>
+              <thead>
+                <tr>
+                  <td><h3>Prop Name</h3></td>
+                  <td><h3>Description</h3></td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="code">groupName: string</td>
+                  <td>
+                    Unique name by which to identify the FormGroup
+                    <strong>Required</strong>
+                  </td>
+                </tr>
+                  <td class="code">errors: object | boolean</td>
+                  <td>
+                    Sets errors on FormGroup: false if the group is valid or an
+                    object with the error names as fields and any additional
+                    info about the errors as the values. Default value is false.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">style: object</td>
+                  <td>
+                    Sets inline styling. Default value is an empty object.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">value: object</td>
+                  <td>
+                    Sets the values for any nested FormFields. Default value is empty object.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">valid: boolean</td>
+                  <td>
+                    Manually sets whether the FormGroup is valid. Default value is
+                    false;
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">onBlur: function(formState: object)</td>
+                  <td>
+                    <p>
+                      Function called whenever an onBlur event is triggered for
+                      any nested FormField. The function will automatically be passed the
+                      FormGroup's current state.
+                    </p>
+                    <p>
+                      By default, no function will be executed onBlur unless one
+                      is passed as a prop.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="code">onChange: function(formState: object)</td>
+                  <td>
+                    <p>
+                      Function called whenever an onChange event is triggered
+                      for any nested FormField. The function will automatically be passed
+                      the FormGroup's current state.
+                    </p>
+                    <p>
+                      By default, no function will be executed onChange unless
+                      one is passed as a prop.
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                    <td class="code">onSubmit: function(formState: object)</td>
+                    <td>
+                      <p>
+                        Function called whenever an onSubmit event is triggered
+                        for the form. The function will automatically be passed
+                        the FormGroup's current state.
+                      </p>
+                      <p>
+                        By default, no function will be executed onSubmit unless
+                        one is passed as a prop.
+                      </p>
+                    </td>
+                  </tr>
+                <tr>
+                  <td class="code">children: child elements</td>
+                  <td>Any children html elements to render.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
     </main>
 
