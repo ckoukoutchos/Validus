@@ -11,7 +11,10 @@ class App extends Component {
       errors: false,
       groupName: '',
       valid: false,
-      value: {}
+      value: {
+        email: '',
+        password: ''
+      }
     },
     email: {
       disabled: false,
@@ -21,6 +24,7 @@ class App extends Component {
     },
     password: {
       disabled: false,
+      errors: false,
       value: '',
       touched: false,
       valid: false
@@ -39,8 +43,10 @@ class App extends Component {
     const el = [];
     for (const field in object) {
       el.push(
-        <p key={field}>
-          {field}: {object[field] ? 'error' : String(object[field])}
+        <p className="code__indent--double" key={field}>
+          <code>
+            {field}: {object[field] ? 'error' : String(object[field])}
+          </code>
         </p>
       );
     }
@@ -48,14 +54,25 @@ class App extends Component {
   }
 
   render() {
-    const { group } = this.state;
-    const groupErrors = group.errors
-      ? this.displayObjectFields(group.errors)
-      : String(false);
+    const { email, group, password } = this.state;
+    const groupErrors = group.errors ? (
+      this.displayObjectFields(group.errors)
+    ) : (
+      <p className="code__indent--double">
+        <code>false</code>
+      </p>
+    );
+    const emailError = this.state.email.errors ? (
+      <p className="error">Must be a valid email address</p>
+    ) : null;
+    const passwordError = this.state.password.errors ? (
+      <p className="error">Must be at least 4 characters long</p>
+    ) : null;
 
     return (
-      <div className="center">
-        <div className="login">
+      <div>
+        <h1 style={{ textAlign: 'center' }}>Signup Form Demo</h1>
+        <div className="signup">
           <FormGroup
             groupName="1"
             style={{
@@ -63,6 +80,7 @@ class App extends Component {
               flexDirection: 'column',
               padding: '16px'
             }}
+            onBlur={formState => this.formGroupChangeHandler(formState)}
             onChange={formState => this.formGroupChangeHandler(formState)}
           >
             <label style={{ marginLeft: '8px' }}>Email</label>
@@ -70,86 +88,100 @@ class App extends Component {
               fieldName={'email'}
               type="text"
               style={{ margin: '8px', padding: '4px' }}
+              formCheck={[FormCheck.required, FormCheck.email]}
+              onBlur={formState =>
+                this.formFieldChangeHandler(formState, 'email')
+              }
               onChange={formState =>
                 this.formFieldChangeHandler(formState, 'email')
               }
             />
+            {emailError}
             <label style={{ marginLeft: '8px' }}>Password</label>
             <FormField
               fieldName={'password'}
               style={{ margin: '8px', padding: '4px' }}
-              type="text"
+              type="password"
               formCheck={[FormCheck.required, FormCheck.minLength(4)]}
+              onBlur={formState =>
+                this.formFieldChangeHandler(formState, 'password')
+              }
               onChange={formState =>
                 this.formFieldChangeHandler(formState, 'password')
               }
             />
+            {passwordError}
           </FormGroup>
         </div>
-        <div>
-          <h3>Login FormGroup</h3>
-          <div className="code__card">
-            <p className="code__field">
-              <code>formState = {'{'}</code>
-            </p>
-            <p>Errors:</p>
-            <div>{groupErrors}</div>
-            <p className="code__indent">
-              <code>valid: {String(this.state.group.valid)}</code>
-            </p>
-            <p className="code__indent">
-              <code>value: {'{'}</code>
-            </p>
-            <p className="code__indent--double">
-              <code>email: {this.state.group.value.email}</code>
-            </p>
-            <p className="code__indent--double">
-              <code>password: {this.state.group.value.password}</code>
-            </p>
-            <p className="code__indent">{'}'}</p>
-            <p className="code__field">{'}'}</p>
+        <div className="form-state">
+          <div>
+            <h3>Signup FormGroup</h3>
+            <div className="code__card">
+              <p className="code__field">
+                <code>formState = {'{'}</code>
+              </p>
+              <p className="code__indent">
+                <code>errors: {'{'}</code>
+              </p>
+              {groupErrors}
+              <p className="code__indent">{'}'}</p>
+              <p className="code__indent">
+                <code>valid: {String(group.valid)}</code>
+              </p>
+              <p className="code__indent">
+                <code>value: {'{'}</code>
+              </p>
+              <p className="code__indent--double">
+                <code>email: {group.value.email}</code>
+              </p>
+              <p className="code__indent--double">
+                <code>password: {group.value.password}</code>
+              </p>
+              <p className="code__indent">{'}'}</p>
+              <p className="code__field">{'}'}</p>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h3>Email FormField</h3>
-          <div className="code__card">
-            <p className="code__field">
-              <code>formState = {'{'}</code>
-            </p>
-            <p className="code__indent">
-              <code>value: {this.state.email.value}</code>
-            </p>
-            <p className="code__indent">
-              <code>disabled: {String(this.state.email.disabled)}</code>
-            </p>
-            <p className="code__indent">
-              <code>touched: {String(this.state.email.touched)}</code>
-            </p>
-            <p className="code__indent">
-              <code>valid: {String(this.state.email.valid)}</code>
-            </p>
-            <p className="code__field">{'}'}</p>
+          <div>
+            <h3>Email FormField</h3>
+            <div className="code__card">
+              <p className="code__field">
+                <code>formState = {'{'}</code>
+              </p>
+              <p className="code__indent">
+                <code>value: {email.value}</code>
+              </p>
+              <p className="code__indent">
+                <code>disabled: {String(email.disabled)}</code>
+              </p>
+              <p className="code__indent">
+                <code>touched: {String(email.touched)}</code>
+              </p>
+              <p className="code__indent">
+                <code>valid: {String(email.valid)}</code>
+              </p>
+              <p className="code__field">{'}'}</p>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <h3>Password FormField</h3>
-          <div className="code__card">
-            <code>formState = {'{'}</code>
-            <p className="code__indent">
-              <code>value: {this.state.password.value}</code>
-            </p>
-            <p className="code__indent">
-              <code>disabled: {String(this.state.password.disabled)}</code>
-            </p>
-            <p className="code__indent">
-              <code>touched: {String(this.state.password.touched)}</code>
-            </p>
-            <p className="code__indent">
-              <code>valid: {String(this.state.password.valid)}</code>
-            </p>
-            <p className="code__field">{'}'}</p>
+          <div>
+            <h3>Password FormField</h3>
+            <div className="code__card">
+              <code>formState = {'{'}</code>
+              <p className="code__indent">
+                <code>value: {password.value}</code>
+              </p>
+              <p className="code__indent">
+                <code>disabled: {String(password.disabled)}</code>
+              </p>
+              <p className="code__indent">
+                <code>touched: {String(password.touched)}</code>
+              </p>
+              <p className="code__indent">
+                <code>valid: {String(password.valid)}</code>
+              </p>
+              <p className="code__field">{'}'}</p>
+            </div>
           </div>
         </div>
       </div>

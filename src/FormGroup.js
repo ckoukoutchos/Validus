@@ -46,7 +46,7 @@ class FormGroup extends Component {
   setFormFieldValues() {
     const value = {};
     this.props.children.forEach(child => {
-      if (child.type.name === 'FormField') {
+      if (child && child.type.name === 'FormField') {
         child.props.value
           ? (value[child.props.fieldName] = child.props.value)
           : (value[child.props.fieldName] = '');
@@ -83,7 +83,7 @@ class FormGroup extends Component {
     const addPropsToChildren = React.Children.map(
       this.props.children,
       child => {
-        if (child.type.name === 'FormField') {
+        if (child && child.type.name === 'FormField') {
           return React.cloneElement(child, {
             onBlurGroup: this.formFieldEventHandler,
             onChangeGroup: this.formFieldEventHandler

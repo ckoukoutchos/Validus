@@ -1,13 +1,10 @@
-.center {
-  height: 500px;
-  width: 500px;
-  margin: 100px;
-}
-
 .code__card {
   background: lightgrey;
   border-radius: 8px;
+  height: 270px;
+  margin: 8px;
   padding: 16px;
+  width: 300px;
 }
 
 .code__field {
@@ -26,7 +23,21 @@
   padding: 4px;
 }
 
-.login {
-  border: 2px solid rgb(14, 1, 97);
+.error {
+  color: red;
+  margin: 0;
+  padding: 4px;
+}
+
+.form-state {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.signup {
+  border: 3px solid black;
   border-radius: 8px;
+  margin: auto;
+  width: 300px;
 }
