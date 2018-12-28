@@ -4,3 +4,8 @@
   margin: 100px;
   text-align: center;
 }
+
+.login {
+  border: 2px solid rgb(14, 1, 97);
+  border-radius: 8px;
+}
