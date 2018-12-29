@@ -14,6 +14,22 @@ class FormField extends Component {
     formCheck: this.props.formCheck || []
   };
 
+  componentDidMount() {
+    const { formCheck, onBlurGroup, onChangeGroup } = this.props;
+    if (formCheck.length) {
+      const hasError = this.checkValidity(formCheck, this.state.value);
+
+      const startingState = {
+        ...this.state,
+        errors: hasError,
+        valid: !hasError
+      };
+
+      if (onChangeGroup) onChangeGroup(startingState, 'change');
+      if (onBlurGroup) onBlurGroup(startingState, 'blur');
+    }
+  }
+
   /**
    * @description runs input value through each FormCheck to check validity
    * @param {FormCheck[]} formCheck FormCheck[]

@@ -4,6 +4,10 @@
   width: 50%;
 }
 
+[disabled] {
+  color: grey;
+}
+
 .code__card {
   background: lightgrey;
   border-radius: 8px;
