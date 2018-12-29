@@ -57,6 +57,16 @@ class App extends Component {
     return el;
   }
 
+  optionToggleHandler = (field, subfield) => {
+    this.setState(prevState => ({
+      ...prevState,
+      [field]: {
+        ...prevState[field],
+        [subfield]: !prevState[field][subfield]
+      }
+    }));
+  };
+
   render() {
     const { email, group, password } = this.state;
     const groupErrors = group.errors ? (
@@ -66,12 +76,14 @@ class App extends Component {
         <code>false</code>
       </p>
     );
-    const emailError = this.state.email.errors ? (
-      <p className="error">Must be a valid email address</p>
-    ) : null;
-    const passwordError = this.state.password.errors ? (
-      <p className="error">Must be at least 4 characters long</p>
-    ) : null;
+    const emailError =
+      email.errors || email.touched ? (
+        <p className="error">Must be a valid email address</p>
+      ) : null;
+    const passwordError =
+      password.errors || password.touched ? (
+        <p className="error">Must be at least 4 characters long</p>
+      ) : null;
 
     return (
       <div>
@@ -101,6 +113,8 @@ class App extends Component {
               onChange={formState =>
                 this.formFieldChangeHandler(formState, 'email')
               }
+              disabled={email.disabled}
+              touched={email.touched}
             />
             {emailError}
             <label style={{ marginLeft: '8px' }}>Password</label>
@@ -115,6 +129,8 @@ class App extends Component {
               onChange={formState =>
                 this.formFieldChangeHandler(formState, 'password')
               }
+              disabled={password.disabled}
+              touched={password.touched}
             />
             {passwordError}
             <button className="button" type="submit" disabled={!group.valid}>
@@ -172,6 +188,16 @@ class App extends Component {
               </p>
               <p className="code__field">{'}'}</p>
             </div>
+            <label>Disable Input</label>
+            <input
+              type="checkbox"
+              onChange={() => this.optionToggleHandler('email', 'disabled')}
+            />
+            <label>Mark as Touched</label>
+            <input
+              type="checkbox"
+              onChange={() => this.optionToggleHandler('email', 'touched')}
+            />
           </div>
 
           <div>
@@ -192,6 +218,16 @@ class App extends Component {
               </p>
               <p className="code__field">{'}'}</p>
             </div>
+            <label>Disable Input</label>
+            <input
+              type="checkbox"
+              onChange={() => this.optionToggleHandler('password', 'disabled')}
+            />
+            <label>Mark as Touched</label>
+            <input
+              type="checkbox"
+              onChange={() => this.optionToggleHandler('password', 'touched')}
+            />
           </div>
         </div>
       </div>
