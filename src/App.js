@@ -57,6 +57,18 @@ class App extends Component {
     return el;
   }
 
+  fieldErrors(field) {
+    if (field.errors) {
+      return this.displayObjectFields(field.errors);
+    } else {
+      return (
+        <p className="code__indent--double">
+          <code>false</code>
+        </p>
+      );
+    }
+  }
+
   optionToggleHandler = (field, subfield) => {
     this.setState(prevState => ({
       ...prevState,
@@ -69,19 +81,13 @@ class App extends Component {
 
   render() {
     const { email, group, password } = this.state;
-    const groupErrors = group.errors ? (
-      this.displayObjectFields(group.errors)
-    ) : (
-      <p className="code__indent--double">
-        <code>false</code>
-      </p>
-    );
+
     const emailError =
-      email.errors || email.touched ? (
+      email.errors || (email.touched && email.errors) ? (
         <p className="error">Must be a valid email address</p>
       ) : null;
     const passwordError =
-      password.errors || password.touched ? (
+      password.errors || (password.touched && password.errors) ? (
         <p className="error">Must be at least 4 characters long</p>
       ) : null;
 
@@ -133,7 +139,7 @@ class App extends Component {
               touched={password.touched}
             />
             {passwordError}
-            <button className="button" type="submit" disabled={!group.valid}>
+            <button type="submit" disabled={!group.valid}>
               Submit
             </button>
           </FormGroup>
@@ -149,7 +155,7 @@ class App extends Component {
               <p className="code__indent">
                 <code>errors: {'{'}</code>
               </p>
-              {groupErrors}
+              {this.fieldErrors(group)}
               <p className="code__indent">{'}'}</p>
               <p className="code__indent">
                 <code>valid: {String(group.valid)}</code>
@@ -175,6 +181,10 @@ class App extends Component {
                 <code>formState = {'{'}</code>
               </p>
               <p className="code__indent">
+                <code>errors: {'{'}</code>
+              </p>
+              {this.fieldErrors(email)}
+              <p className="code__indent">
                 <code>value: {email.value}</code>
               </p>
               <p className="code__indent">
@@ -188,22 +198,26 @@ class App extends Component {
               </p>
               <p className="code__field">{'}'}</p>
             </div>
-            <label>Disable Input</label>
-            <input
-              type="checkbox"
-              onChange={() => this.optionToggleHandler('email', 'disabled')}
-            />
-            <label>Mark as Touched</label>
-            <input
-              type="checkbox"
-              onChange={() => this.optionToggleHandler('email', 'touched')}
-            />
+            <button
+              onClick={() => this.optionToggleHandler('email', 'disabled')}
+            >
+              {email.disabled ? 'Enable Input' : 'Disable Input'}
+            </button>
+            <button
+              onClick={() => this.optionToggleHandler('email', 'touched')}
+            >
+              {email.touched ? 'Mark as Clean' : 'Mark as Touched'}
+            </button>
           </div>
 
           <div>
             <h3 style={{ textAlign: 'center' }}>Password FormField</h3>
             <div className="code__card">
               <code>formState = {'{'}</code>
+              <p className="code__indent">
+                <code>errors: {'{'}</code>
+              </p>
+              {this.fieldErrors(password)}
               <p className="code__indent">
                 <code>value: {password.value}</code>
               </p>
@@ -218,16 +232,16 @@ class App extends Component {
               </p>
               <p className="code__field">{'}'}</p>
             </div>
-            <label>Disable Input</label>
-            <input
-              type="checkbox"
-              onChange={() => this.optionToggleHandler('password', 'disabled')}
-            />
-            <label>Mark as Touched</label>
-            <input
-              type="checkbox"
-              onChange={() => this.optionToggleHandler('password', 'touched')}
-            />
+            <button
+              onClick={() => this.optionToggleHandler('password', 'disabled')}
+            >
+              {password.disabled ? 'Enable Input' : 'Disable Input'}
+            </button>
+            <button
+              onClick={() => this.optionToggleHandler('password', 'touched')}
+            >
+              {password.touched ? 'Mark as Clean' : 'Mark as Touched'}
+            </button>
           </div>
         </div>
       </div>

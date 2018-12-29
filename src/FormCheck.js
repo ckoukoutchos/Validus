@@ -8,9 +8,11 @@ export default class FormCheck {
    * @returns boolean
    */
   static email(value) {
-    return !/^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/.test(
+    return /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/.test(
       value
-    );
+    )
+      ? false
+      : ['email', false];
   }
 
   /**
@@ -61,7 +63,7 @@ export default class FormCheck {
    * @returns function
    */
   static regex(regex) {
-    return value => regex.test(value);
+    return value => (regex.test(value) ? false : ['regex', false]);
   }
 
   /**

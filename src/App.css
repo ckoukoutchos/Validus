@@ -1,11 +1,7 @@
-.button {
+button {
   margin: auto;
   padding: 4px;
   width: 50%;
-}
-
-[disabled] {
-  color: grey;
 }
 
 .code__card {
@@ -31,6 +27,10 @@
   margin: 0;
   margin-left: 32px;
   padding: 4px;
+}
+
+[disabled] {
+  color: grey;
 }
 
 .error {
