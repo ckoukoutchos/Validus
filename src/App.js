@@ -40,7 +40,9 @@ class App extends Component {
   };
 
   formSubmitHandler = formState => {
-    alert(formState.valid);
+    alert(
+      `Email: ${formState.value.email} || Password: ${formState.value.password}`
+    );
   };
 
   displayObjectFields(object) {
@@ -83,11 +85,11 @@ class App extends Component {
     const { email, group, password } = this.state;
 
     const emailError =
-      email.errors || (email.touched && email.errors) ? (
+      email.touched && email.errors ? (
         <p className="error">Must be a valid email address</p>
       ) : null;
     const passwordError =
-      password.errors || (password.touched && password.errors) ? (
+      password.touched && password.errors ? (
         <p className="error">Must be at least 4 characters long</p>
       ) : null;
 
