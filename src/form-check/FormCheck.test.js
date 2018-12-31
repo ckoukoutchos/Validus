@@ -21,7 +21,19 @@ describe('FormCheck', () => {
 
   describe('maxLength', () => {
     it('should false if value length is lt or = to maxLength', () => {
-      const actual = F;
+      const actual = FormCheck.maxLength(2)('hi');
+      expect(actual).toBe(false);
+    });
+
+    it('should return an error array with "maxLength" as the 1st item if gt maxLength', () => {
+      const [error] = FormCheck.maxLength(2)('hii');
+      expect(error).toEqual('maxLength');
+    });
+
+    it('should return error with maxLength/actual as 2nd item if gt maxLength', () => {
+      const [, error] = FormCheck.maxLength(2)('hii');
+      expect(error.maxLength).toEqual(2);
+      expect(error.actual).toEqual(3);
     });
   });
 
@@ -39,6 +51,24 @@ describe('FormCheck', () => {
     it('should return error with min/actual as 2nd item if lt min', () => {
       const [, error] = FormCheck.min(2)(1);
       expect(error.min).toEqual(2);
+      expect(error.actual).toEqual(1);
+    });
+  });
+
+  describe('minLength', () => {
+    it('should false if value length is gt or = to minLength', () => {
+      const actual = FormCheck.minLength(2)('hi');
+      expect(actual).toBe(false);
+    });
+
+    it('should return an error array with "minLength" as the 1st item if lt minLength', () => {
+      const [error] = FormCheck.minLength(2)('h');
+      expect(error).toEqual('minLength');
+    });
+
+    it('should return error with minLength/actual as 2nd item if lt minLength', () => {
+      const [, error] = FormCheck.minLength(2)('h');
+      expect(error.minLength).toEqual(2);
       expect(error.actual).toEqual(1);
     });
   });
