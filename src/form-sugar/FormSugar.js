@@ -1,6 +1,6 @@
 import React from 'react';
-import FormField from './FormField';
-import FormGroup from './FormGroup';
+import FormField from '../form-field/FormField';
+import FormGroup from '../form-group/FormGroup';
 
 class FormSugar {
   static field([fieldName, type, value, validators, onChange]) {

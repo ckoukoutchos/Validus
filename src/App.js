@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import FormGroup from './FormGroup';
-import FormField from './FormField';
-import FormCheck from './FormCheck';
+import FormGroup from './form-group/FormGroup';
+import FormField from './form-field/FormField';
+import FormCheck from './form-check/FormCheck';
 
 class App extends Component {
   state = {
