@@ -3,14 +3,14 @@ import FormField from '../form-field/FormField';
 import FormGroup from '../form-group/FormGroup';
 
 class FormSugar {
-  static field([fieldName, type, value, validators, onChange]) {
+  static field([fieldName, type, value, formCheck, onChange]) {
     return (
       <FormField
         key={fieldName}
         fieldName={fieldName}
         type={type}
         value={value}
-        validators={validators}
+        formCheck={formCheck}
         onChange={onChange}
       />
     );

@@ -15,15 +15,10 @@ class FormField extends Component {
   };
 
   componentDidMount() {
-    const {
-      formCheck,
-      onBlur,
-      onChange,
-      onBlurGroup,
-      onChangeGroup
-    } = this.props;
+    const { onBlur, onChange, onBlurGroup, onChangeGroup } = this.props;
+    const { formCheck, value } = this.state;
     if (formCheck.length) {
-      const hasError = this.checkValidity(formCheck, this.state.value);
+      const hasError = this.checkValidity(formCheck, value);
 
       const startingState = {
         ...this.state,
