@@ -12,7 +12,7 @@ export default class FormCheck {
       value
     )
       ? false
-      : ['email', false];
+      : ['email', true];
   }
 
   /**
@@ -63,7 +63,7 @@ export default class FormCheck {
    * @returns function
    */
   static regex(regex) {
-    return value => (regex.test(value) ? false : ['regex', false]);
+    return value => (regex.test(value) ? false : ['regex', true]);
   }
 
   /**

@@ -1,10 +1,21 @@
 import FormCheck from './FormCheck';
 
 describe('FormCheck', () => {
+  describe('email', () => {
+    it('should return false if value is valid email format', () => {
+      expect(FormCheck.email('asdf@asdf.com')).toBe(false);
+    });
+
+    it('should return an error array with "email" as the 1st item if invalid email format', () => {
+      const [error, value] = FormCheck.email('asdf');
+      expect(error).toEqual('email');
+      expect(value).toBe(true);
+    });
+  });
+
   describe('max', () => {
     it('should return false if value is lt or = to max', () => {
-      const actual = FormCheck.max(2)(2);
-      expect(actual).toBe(false);
+      expect(FormCheck.max(2)(2)).toBe(false);
     });
 
     it('should return an error array with "max" as the 1st item if gt max', () => {
@@ -21,8 +32,7 @@ describe('FormCheck', () => {
 
   describe('maxLength', () => {
     it('should false if value length is lt or = to maxLength', () => {
-      const actual = FormCheck.maxLength(2)('hi');
-      expect(actual).toBe(false);
+      expect(FormCheck.maxLength(2)('hi')).toBe(false);
     });
 
     it('should return an error array with "maxLength" as the 1st item if gt maxLength', () => {
@@ -39,8 +49,7 @@ describe('FormCheck', () => {
 
   describe('min', () => {
     it('should return false if value is gt or = to min', () => {
-      const actual = FormCheck.min(2)(2);
-      expect(actual).toBe(false);
+      expect(FormCheck.min(2)(2)).toBe(false);
     });
 
     it('should return an error array with "min" as the 1st item if lt min', () => {
@@ -57,8 +66,7 @@ describe('FormCheck', () => {
 
   describe('minLength', () => {
     it('should false if value length is gt or = to minLength', () => {
-      const actual = FormCheck.minLength(2)('hi');
-      expect(actual).toBe(false);
+      expect(FormCheck.minLength(2)('hi')).toBe(false);
     });
 
     it('should return an error array with "minLength" as the 1st item if lt minLength', () => {
@@ -70,6 +78,36 @@ describe('FormCheck', () => {
       const [, error] = FormCheck.minLength(2)('h');
       expect(error.minLength).toEqual(2);
       expect(error.actual).toEqual(1);
+    });
+  });
+
+  describe('regex', () => {
+    it('should return false if value passes regex test', () => {
+      const regex = FormCheck.regex(RegExp('foo'));
+      expect(regex('foobaz')).toBe(false);
+    });
+
+    it('should return an error array with "regex" as the 1st item if value doesnt pass regex', () => {
+      const regex = FormCheck.regex(RegExp('foo'));
+      const [error, value] = regex('baz');
+      expect(error).toEqual('regex');
+      expect(value).toBe(true);
+    });
+  });
+
+  describe('required', () => {
+    it('should return false if any value is present', () => {
+      expect(FormCheck.required('hi')).toBe(false);
+    });
+
+    it('should return an error array with "required" as the 1st item if no value is present', () => {
+      const [error] = FormCheck.required('');
+      expect(error).toEqual('required');
+    });
+
+    it('should return error with true as 2nd item if only whitespace is present', () => {
+      const [, error] = FormCheck.required('  ');
+      expect(error).toBe(true);
     });
   });
 });
