@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 
-import FormGroup from './form-group/FormGroup';
-import FormField from './form-field/FormField';
-import FormCheck from './form-check/FormCheck';
-import NavBar from './UI/navbar/NavBar';
+import FormGroup from '../form-group/FormGroup';
+import FormField from '../form-field/FormField';
+import FormCheck from '../form-check/FormCheck';
+import NavBar from '../UI/navbar/NavBar';
 
 class Demo extends Component {
   state = {

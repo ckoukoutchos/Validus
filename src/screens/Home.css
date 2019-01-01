@@ -1,0 +1,38 @@
+.card__side {
+  border-radius: 0 10px 10px 0;
+  box-shadow: 5px 5px 3px 3px rgba(0, 0, 0, 0.5);
+  color: white;
+  font-family: 'Bai Jamjuree', sans-serif;
+  height: 300px;
+  margin: 16px 0;
+  width: 80%;
+}
+
+.card__side-title {
+  font-size: 72px;
+  margin: auto;
+  padding: 16px;
+}
+
+.clearfix {
+  clear: both;
+}
+
+#install {
+  background: rgb(92, 97, 111);
+}
+
+main {
+  margin-top: 63px;
+  margin-bottom: 100px;
+}
+
+#overview {
+  background: rgb(115, 122, 140);
+}
+
+#usage {
+  background: rgb(67, 71, 82);
+  border-radius: 10px 0 0 10px;
+  float: right;
+}
