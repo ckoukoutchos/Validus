@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Footer from '../UI/footer/Footer';
-import NavBar from '../UI/navbar/NavBar';
+import Footer from '../../UI/footer/Footer';
+import NavBar from '../../UI/navbar/NavBar';
 import './Home.css';
 
 const home = props => {
