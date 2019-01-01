@@ -12,6 +12,24 @@ class FormGroup extends Component {
   };
 
   /**
+   * @name addPropsToChildren
+   * @description adds onBlur and onChange handlers to child <FormField>
+   * @returns React Elements
+   */
+  addPropsToChildren() {
+    return React.Children.map(this.props.children, child => {
+      if (child && child.type.name === 'FormField') {
+        return React.cloneElement(child, {
+          onBlurGroup: this.formFieldEventHandler,
+          onChangeGroup: this.formFieldEventHandler
+        });
+      } else {
+        return child;
+      }
+    });
+  }
+
+  /**
    * @description checks if any form fields have an error
    * @param {boolean | object} errors boolean | object
    * @returns boolean
@@ -80,25 +98,12 @@ class FormGroup extends Component {
   }
 
   render() {
-    const addPropsToChildren = React.Children.map(
-      this.props.children,
-      child => {
-        if (child && child.type.name === 'FormField') {
-          return React.cloneElement(child, {
-            onBlurGroup: this.formFieldEventHandler,
-            onChangeGroup: this.formFieldEventHandler
-          });
-        } else {
-          return child;
-        }
-      }
-    );
     return (
       <form
         style={this.props.style}
         onSubmit={evt => this.submitHandler(evt, this.state)}
       >
-        {addPropsToChildren}
+        {this.addPropsToChildren()}
       </form>
     );
   }

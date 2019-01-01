@@ -4,6 +4,7 @@ import './App.css';
 import FormGroup from './form-group/FormGroup';
 import FormField from './form-field/FormField';
 import FormCheck from './form-check/FormCheck';
+import NavBar from './UI/NavBar';
 
 class App extends Component {
   state = {
@@ -95,6 +96,7 @@ class App extends Component {
 
     return (
       <div>
+        <NavBar />
         <h1 style={{ textAlign: 'center' }}>Validus Form Demo</h1>
         <div className="signup">
           <h2 style={{ textAlign: 'center', margin: 0 }}>Signup</h2>
