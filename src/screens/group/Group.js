@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../UI/footer/Footer';
 import NavBar from '../../UI/navbar/NavBar';
 import './Group.css';
@@ -37,7 +38,7 @@ const group = props => {
               <p className="code">onChange: function(formState: object)</p>
               <p className="code">onSubmit: function(formState: object)</p>
               <p className="code">
-                children: <a href="form-field.html">FormField</a>| child
+                children: <Link to="/form-field">FormField</Link>| child
                 elements
               </p>
               <hr />
@@ -172,7 +173,7 @@ const group = props => {
                   <tr>
                     <td className="code">children: child elements</td>
                     <td>
-                      Any children <a href="form-field.html">FormField</a>{' '}
+                      Any children <Link to="/form-field">FormField</Link>{' '}
                       components or html elements to render.
                     </td>
                   </tr>

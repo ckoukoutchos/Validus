@@ -12,8 +12,8 @@ const app = props => {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/demo" exact component={Demo} />
-      <Route path="/formfield" exact component={field} />
-      <Route path="/formgroup" exact component={group} />
+      <Route path="/form-field" exact component={field} />
+      <Route path="/form-group" exact component={group} />
       <Redirect to="/" />
     </Switch>
   );

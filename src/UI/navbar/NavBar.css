@@ -1,3 +1,8 @@
+.active {
+  background: rgb(134, 138, 254);
+  border-radius: 4px;
+}
+
 .main-header {
   background: linear-gradient(rgba(51, 54, 62, 0.8), transparent)
     rgb(28, 28, 28);
@@ -41,4 +46,10 @@
   background: white;
   border-radius: 4px;
   color: black;
+}
+
+.main-nav__item--img {
+  color: white;
+  margin: 0 24px 0 16px;
+  vertical-align: middle;
 }

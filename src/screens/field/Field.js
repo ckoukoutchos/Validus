@@ -47,11 +47,11 @@ const field = props => {
                 <strong>Example:</strong>
               </p>
               <p className="code">
-                {'<FormField>'} fieldName={'{'}'name'{'}'} type={'{'}'text'{'}'}{' '}
+                {'<FormField'} fieldName={'{'}'name'{'}'} type={'{'}'text'{'}'}{' '}
                 value={'{'}'Sally'{'}'}
                 formCheck={'{'}FormCheck.required]{'}'} onChange={'{'}
                 someFunction
-                {'}'} disabled style={'{{'} color: blue {'}}'} touched valid/&gt
+                {'}'} disabled style={'{{'} color: blue {'}}'} touched valid />
               </p>
             </div>
           </div>
