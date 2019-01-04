@@ -3,7 +3,7 @@ import './Footer.css';
 
 const footer = props => {
   return (
-    <footer class="main__footer">
+    <footer className="main__footer">
       <p>MIT License Copyright (c) 2018 Corbin Koukoutchos</p>
     </footer>
   );

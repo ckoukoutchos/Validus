@@ -1,5 +1,5 @@
 .card__content {
-  padding: 8px;
+  padding: 16px;
 }
 
 .card__content a {
@@ -37,6 +37,12 @@
 
 .code {
   font-family: 'IBM Plex Mono', monospace;
+}
+
+.code__indent {
+  margin: 0;
+  margin-left: 16px;
+  padding: 4px;
 }
 
 hr {

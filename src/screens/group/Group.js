@@ -90,7 +90,7 @@ const group = props => {
                     <td className="code">groupName: string</td>
                     <td>
                       Unique name by which to identify the FormGroup
-                      <strong>Required</strong>
+                      <strong> Required</strong>
                     </td>
                   </tr>
                   <tr>

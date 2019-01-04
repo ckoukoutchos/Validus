@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import '../App.css';
+import './Demo.css';
 
 import FormGroup from '../form-group/FormGroup';
 import FormField from '../form-field/FormField';
 import FormCheck from '../form-check/FormCheck';
+import Footer from '../UI/footer/Footer';
 import NavBar from '../UI/navbar/NavBar';
 
 class Demo extends Component {
@@ -95,7 +96,7 @@ class Demo extends Component {
       ) : null;
 
     return (
-      <div>
+      <div style={{ marginTop: '64px', marginBottom: '48px' }}>
         <NavBar />
         <h1 style={{ textAlign: 'center' }}>Validus Form Demo</h1>
         <div className="signup">
@@ -248,6 +249,7 @@ class Demo extends Component {
             </button>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

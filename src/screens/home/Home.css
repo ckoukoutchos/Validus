@@ -27,6 +27,13 @@ main {
   margin-bottom: 100px;
 }
 
+.link a {
+  color: white;
+  font-weight: bold;
+  padding: 8px 4px;
+  text-decoration: none;
+}
+
 #overview {
   background: rgb(115, 122, 140);
 }

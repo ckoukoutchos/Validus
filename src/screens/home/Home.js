@@ -15,7 +15,9 @@ const home = props => {
           </div>
           <div className="card__side" id="usage">
             <h1 className="card__side-title">Usage</h1>
-            <Link to={'/demo'}>Demo</Link>
+            <h3 className="link">
+              <Link to={'/demo'}>Demo</Link>
+            </h3>
           </div>
           <div className="clearfix" />
           <div className="card__side" id="install">
