@@ -45,12 +45,23 @@ const group = props => {
               <p>
                 <strong>Example:</strong>
               </p>
-              <p className="code">
-                {'<FormGroup>'} groupName={'{'}'login'{'}'} value={'{{'} 'name':
-                'Tom' {'}}'}
-                onChange={'{'}someFunction{'}'} style={'{{'}background:grey
-                {'}}'} valid {'<FormField />'} {'</FormGroup>'}
+              <p className="code">{'<FormGroup'}</p>
+              <p className="code code__indent">
+                groupName={'{'}'login'{'}'}
               </p>
+              <p className="code code__indent">
+                value={'{{'} 'name': 'Tom' {'}}'}
+              </p>
+              <p className="code code__indent">
+                onChange={'{'}someFunction{'}'}
+              </p>
+              <p className="code code__indent">
+                style={'{{'}background:grey
+                {'}}'}
+              </p>
+              <p className="code code__indent">valid></p>
+              <p className="code code__indent">{'<FormField />'}</p>
+              <p className="code">{'</FormGroup>'}</p>
             </div>
           </div>
           <div className="card__detail">

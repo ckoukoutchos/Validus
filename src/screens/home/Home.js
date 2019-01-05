@@ -14,14 +14,19 @@ const home = props => {
             <h1 className="card__side-title">Validus</h1>
             <h3 className="card__side--content">
               A simple validation library for
-              <a href="https://reactjs.org/">React</a>that keeps track of an
-              input's, or group of inputs', value and validity.
+              <a href="https://reactjs.org/">React</a>that makes keeping track
+              of an input or form's value and validity simple!
+            </h3>
+            <h3 className="card__side--content">
+              Validus saves you from the repetitive chore of building out your
+              own forms; handling its own state and freeing you to focus on your
+              app's buisness logic.
             </h3>
           </div>
           <div className="card__side" id="usage">
             <h1 className="card__side-title">Usage</h1>
             <h3 className="card__side--content">
-              Want to see the library in action? Check out a interactive
+              Want to see the library in action? Check out an interactive
               <Link to={'/demo'}>DEMO</Link>.
             </h3>
           </div>

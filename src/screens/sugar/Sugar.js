@@ -86,8 +86,8 @@ const sugar = props => {
               </p>
               <p className="code">
                 {' <FormField'} fieldName={'{'}'name'{'}'} type={'{'}'text'
-                {'}'} value={'{'}'Sue'{'}'}
-                formCheck={'{'}[FormCheck.required]{'}'} onChange={'{'}
+                {'}'} value={'{'}'Sue'{'}'} formCheck={'{'}[FormCheck.required]
+                {'}'} onChange={'{'}
                 someFunction{'}'} />
               </p>
             </div>
@@ -97,8 +97,8 @@ const sugar = props => {
             <div className="card__header">
               <h2>group( )</h2>
               <p>
-                Shorthand for creating a &ltFormGroup&gt. All other props for a
-                &ltFormGroup&gt not included in the group method are set to the
+                Shorthand for creating a {'<FormGroup>'}. All other props for a
+                {' <FormGroup>'} not included in the group method are set to the
                 default value.
               </p>
             </div>
@@ -120,7 +120,7 @@ const sugar = props => {
               <p className="code">
                 {' <FormGroup'} groupName={'{'}'name'{'}'} onChange={'{'}
                 someFunction{'}'}
-                value={'{'}''{'}'}> {' <FormField />'} {' <FormGroup />'}
+                value={'{'}''{'}'}> {' <FormField />'} {' </FormGroup>'}
               </p>
             </div>
           </div>
