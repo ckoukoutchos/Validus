@@ -23,7 +23,9 @@ const navbar = props => {
             </NavLink>
           </li>
           <li className="main-nav__item">
-            <a href="form-sugar.html">FormSugar</a>
+            <NavLink to={'/form-sugar'} exact>
+              FormSugar
+            </NavLink>
           </li>
           <li className="main-nav__item">
             <a href="form-check.html">FormCheck</a>

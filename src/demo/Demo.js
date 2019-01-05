@@ -144,7 +144,11 @@ class Demo extends Component {
               touched={password.touched}
             />
             {passwordError}
-            <button type="submit" disabled={!group.valid}>
+            <button
+              style={{ margin: 'auto' }}
+              type="submit"
+              disabled={!group.valid}
+            >
               Submit
             </button>
           </FormGroup>

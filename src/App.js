@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-// import './App.css';
 
 import Demo from './demo/Demo';
 import Home from './screens/home/Home';
-import field from './screens/field/Field';
-import group from './screens/group/Group';
+import Field from './screens/field/Field';
+import Group from './screens/group/Group';
+import Sugar from './screens/sugar/Sugar';
 
 const app = props => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/demo" exact component={Demo} />
-      <Route path="/form-field" exact component={field} />
-      <Route path="/form-group" exact component={group} />
+      <Route path="/form-field" exact component={Field} />
+      <Route path="/form-group" exact component={Group} />
+      <Route path="/form-sugar" exact component={Sugar} />
       <Redirect to="/" />
     </Switch>
   );

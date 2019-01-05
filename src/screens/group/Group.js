@@ -38,7 +38,7 @@ const group = props => {
               <p className="code">onChange: function(formState: object)</p>
               <p className="code">onSubmit: function(formState: object)</p>
               <p className="code">
-                children: <Link to="/form-field">FormField</Link>| child
+                children: <Link to="/form-field">{'<FormField>'}</Link> | child
                 elements
               </p>
               <hr />
