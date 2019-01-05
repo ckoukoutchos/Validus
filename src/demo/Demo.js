@@ -100,7 +100,11 @@ class Demo extends Component {
         <NavBar />
         <h1 style={{ textAlign: 'center' }}>Validus Form Demo</h1>
         <div className="signup">
-          <h2 style={{ textAlign: 'center', margin: 0 }}>Signup</h2>
+          <div className="code__card--header">
+            <h2 style={{ textAlign: 'center', margin: 0, padding: '8px' }}>
+              Signup
+            </h2>
+          </div>
           <FormGroup
             groupName="1"
             style={{
@@ -155,9 +159,11 @@ class Demo extends Component {
         </div>
 
         <div className="form-state">
-          <div>
-            <h3 style={{ textAlign: 'center' }}>Signup FormGroup</h3>
-            <div className="code__card">
+          <div className="code__card">
+            <div className="code__card--header">
+              <h3 style={{ textAlign: 'center' }}>Signup FormGroup</h3>
+            </div>
+            <div className="code__card--content">
               <p className="code__field">
                 <code>formState = {'{'}</code>
               </p>
@@ -184,28 +190,32 @@ class Demo extends Component {
           </div>
 
           <div>
-            <h3 style={{ textAlign: 'center' }}>Email FormField</h3>
             <div className="code__card">
-              <p className="code__field">
-                <code>formState = {'{'}</code>
-              </p>
-              <p className="code__indent">
-                <code>errors: {'{'}</code>
-              </p>
-              {this.fieldErrors(email)}
-              <p className="code__indent">
-                <code>value: {email.value}</code>
-              </p>
-              <p className="code__indent">
-                <code>disabled: {String(email.disabled)}</code>
-              </p>
-              <p className="code__indent">
-                <code>touched: {String(email.touched)}</code>
-              </p>
-              <p className="code__indent">
-                <code>valid: {String(email.valid)}</code>
-              </p>
-              <p className="code__field">{'}'}</p>
+              <div className="code__card--header">
+                <h3 style={{ textAlign: 'center' }}>Email FormField</h3>
+              </div>
+              <div className="code__card--content">
+                <p className="code__field">
+                  <code>formState = {'{'}</code>
+                </p>
+                <p className="code__indent">
+                  <code>errors: {'{'}</code>
+                </p>
+                {this.fieldErrors(email)}
+                <p className="code__indent">
+                  <code>value: {email.value}</code>
+                </p>
+                <p className="code__indent">
+                  <code>disabled: {String(email.disabled)}</code>
+                </p>
+                <p className="code__indent">
+                  <code>touched: {String(email.touched)}</code>
+                </p>
+                <p className="code__indent">
+                  <code>valid: {String(email.valid)}</code>
+                </p>
+                <p className="code__field">{'}'}</p>
+              </div>
             </div>
             <button
               onClick={() => this.optionToggleHandler('email', 'disabled')}
@@ -220,26 +230,30 @@ class Demo extends Component {
           </div>
 
           <div>
-            <h3 style={{ textAlign: 'center' }}>Password FormField</h3>
             <div className="code__card">
-              <code>formState = {'{'}</code>
-              <p className="code__indent">
-                <code>errors: {'{'}</code>
-              </p>
-              {this.fieldErrors(password)}
-              <p className="code__indent">
-                <code>value: {password.value}</code>
-              </p>
-              <p className="code__indent">
-                <code>disabled: {String(password.disabled)}</code>
-              </p>
-              <p className="code__indent">
-                <code>touched: {String(password.touched)}</code>
-              </p>
-              <p className="code__indent">
-                <code>valid: {String(password.valid)}</code>
-              </p>
-              <p className="code__field">{'}'}</p>
+              <div className="code__card--header">
+                <h3 style={{ textAlign: 'center' }}>Password FormField</h3>
+              </div>
+              <div className="code__card--content">
+                <code>formState = {'{'}</code>
+                <p className="code__indent">
+                  <code>errors: {'{'}</code>
+                </p>
+                {this.fieldErrors(password)}
+                <p className="code__indent">
+                  <code>value: {password.value}</code>
+                </p>
+                <p className="code__indent">
+                  <code>disabled: {String(password.disabled)}</code>
+                </p>
+                <p className="code__indent">
+                  <code>touched: {String(password.touched)}</code>
+                </p>
+                <p className="code__indent">
+                  <code>valid: {String(password.valid)}</code>
+                </p>
+                <p className="code__field">{'}'}</p>
+              </div>
             </div>
             <button
               onClick={() => this.optionToggleHandler('password', 'disabled')}

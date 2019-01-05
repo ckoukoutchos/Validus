@@ -1,7 +1,7 @@
 button {
   background: rgb(134, 138, 254);
   border: none;
-  border-radius: 2px;
+  border-radius: 8px;
   box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.5);
   color: white;
   margin: 4px;
@@ -12,12 +12,22 @@ button {
 
 .code__card {
   background: whitesmoke;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5);
-  height: 300px;
-  margin: 8px;
-  padding: 16px;
+  height: 400px;
+  margin: 16px;
   width: 300px;
+}
+
+.code__card--header {
+  background: rgb(51, 54, 62);
+  border-radius: 10px 10px 0 0;
+  color: white;
+  padding: 8px 16px;
+}
+
+.code__card--content {
+  padding: 16px;
 }
 
 .code__field {
@@ -53,10 +63,10 @@ button {
 }
 
 .signup {
-  font-family: 'Bai Jamjuree', sans-serif;
   background: whitesmoke;
-  border: 3px solid black;
-  border-radius: 8px;
+  box-shadow: 3px 3px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  font-family: 'Bai Jamjuree', sans-serif;
   margin: auto;
   width: 50%;
 }

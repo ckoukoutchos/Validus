@@ -8,10 +8,14 @@
   width: 80%;
 }
 
+.card__side--content {
+  padding: 0 16px 0 24px;
+}
+
 .card__side-title {
   font-size: 72px;
   margin: auto;
-  padding: 16px;
+  padding: 0 16px 0 24px;
 }
 
 .clearfix {
@@ -27,11 +31,9 @@ main {
   margin-bottom: 100px;
 }
 
-.link a {
-  color: white;
-  font-weight: bold;
+a {
+  color: rgb(252, 252, 252);
   padding: 8px 4px;
-  text-decoration: none;
 }
 
 #overview {

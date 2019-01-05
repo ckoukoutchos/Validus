@@ -46,12 +46,12 @@ const sugar = props => {
               <p>
                 FormSugar is just what it sounds like: syntactic sugar for
                 creating Forms.
-                <p>
-                  Instead of passing each field as a prop to the Form component,
-                  you can call either the <strong>field</strong> or
-                  <strong> group</strong> method of the className and pass it an
-                  array of the props.
-                </p>
+              </p>
+              <p>
+                Instead of passing each field as a prop to the Form component,
+                you can call either the <strong>field</strong> or
+                <strong> group</strong> method of the className and pass it an
+                array of the props.
               </p>
             </div>
           </div>

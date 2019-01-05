@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Footer from '../../UI/footer/Footer';
 import NavBar from '../../UI/navbar/NavBar';

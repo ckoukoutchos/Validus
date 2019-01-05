@@ -12,16 +12,23 @@ const home = props => {
         <section>
           <div className="card__side" id="overview">
             <h1 className="card__side-title">Validus</h1>
+            <h3 className="card__side--content">
+              A simple validation library for
+              <a href="https://reactjs.org/">React</a>that keeps track of an
+              input's, or group of inputs', value and validity.
+            </h3>
           </div>
           <div className="card__side" id="usage">
             <h1 className="card__side-title">Usage</h1>
-            <h3 className="link">
-              <Link to={'/demo'}>Demo</Link>
+            <h3 className="card__side--content">
+              Want to see the library in action? Check out a interactive
+              <Link to={'/demo'}>DEMO</Link>.
             </h3>
           </div>
           <div className="clearfix" />
           <div className="card__side" id="install">
             <h1 className="card__side-title">Install</h1>
+            <h3 className="card__side--content">NPM package in-progress</h3>
           </div>
         </section>
         <Footer />
