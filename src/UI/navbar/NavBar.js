@@ -28,7 +28,9 @@ const navbar = props => {
             </NavLink>
           </li>
           <li className="main-nav__item">
-            <a href="form-check.html">FormCheck</a>
+            <NavLink to={'/form-check'} exact>
+              FormCheck
+            </NavLink>
           </li>
           <li className="main-nav__item--img">
             <a href="https://github.com/ckoukoutchos/Validus">

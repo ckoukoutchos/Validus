@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Footer from '../../UI/footer/Footer';
 import NavBar from '../../UI/navbar/NavBar';
 import './Field.css';
@@ -33,7 +35,7 @@ const field = props => {
               <p className="code">disabled: boolean = false</p>
               <p className="code">errors: object | boolean = false</p>
               <p className="code">
-                formCheck: <a href="form-check.html">FormCheck</a>[] = []
+                formCheck: <Link to="/form-check">FormCheck</Link>[] = []
               </p>
               <p className="code">style: object = {}</p>
               <p className="code">touched: boolean = false</p>
@@ -137,11 +139,12 @@ const field = props => {
                   </tr>
                   <tr>
                     <td className="code">
-                      formCheck: <a href="form-check.html">FormCheck</a>[]
+                      formCheck: <Link to="/form-check">FormCheck</Link>[]
                     </td>
                     <td>
-                      Array of FormCheck functions to run when input value
-                      changes or on input blur. Default value is an empty array.
+                      Array of <Link to="/form-check">FormCheck</Link> functions
+                      to run when input value changes or on input blur. Default
+                      value is an empty array.
                     </td>
                   </tr>
                   <tr>
