@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Validus/precache-manifest.a7ed2125912becf8461f4bd4e6064e90.js"
+  "/Validus/precache-manifest.e28e301bbc66548fe416ddcfe170bd89.js"
 );
 
 workbox.clientsClaim();
