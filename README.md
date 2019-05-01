@@ -12,9 +12,7 @@ You can find everything you need to know on the [docs website.](https://ckoukout
 
 Alternatively, you can play with the demo app to see what Validus has to offer:
 
-1. Clone this repository
-2. Run `npm install` inside the downloaded folder then `npm start`
-3. Go to http://localhost:3000 in your browser
+https://ckoukoutchos.github.io/demo
 
 ### License
 
